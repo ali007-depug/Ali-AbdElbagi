@@ -5,46 +5,46 @@ export default function Work() {
         {
             title:"Bookmark landing page",
             details:"forntEnd mentor challegne",
-            img:"/bookmark.webp",
+            img:"bookmark.webp",
             href:"https://ali007-depug.github.io/bookmark-landing-page-master/",
             builtWith:{
-                react:"/react.webp",
-                sass:"/sass.webp",
-                vite:"/vite.svg"
+                react:"react.webp",
+                sass:"sass.webp",
+                vite:"vite.svg"
             }
         },
         {
             title:"Multi step Form",
             details:"forntEnd mentor challegne",
-            img:"/multistepform.webp",
+            img:"multistepform.webp",
             href:"https://bucolic-pony-727a7f.netlify.app/",
             builtWith:{
-                html:"/html.webp",
-                sass:"/sass.webp",
-                js:"/js.webp"
+                html:"html.webp",
+                sass:"sass.webp",
+                js:"js.webp"
             }
         },
         {
             title:"Promise Web App",
             details:"App that use to write down my habits",
-            img:"/promiseApp.webp",
+            img:"promiseApp.webp",
             href:"https://ali007-depug.github.io/promise-web-app/",
             builtWith:{
-                html:"/html.webp",
-                sass:"/sass.webp",
-                js:"/js.webp"
+                html:"html.webp",
+                sass:"sass.webp",
+                js:"js.webp"
             }
 
         },
         {
             title:"7essAbAt - حسابات",
             details:"Apps that helped me in small busniess calculation",
-            img:"/7essabat.webp",
+            img:"7essabat.webp",
             href:"https://ali007-depug.github.io/7essAbAt-App-V2/",
             builtWith:{
-                html:"/html.webp",
-                sass:"/sass.webp",
-                js:"/js.webp"
+                html:"html.webp",
+                sass:"sass.webp",
+                js:"js.webp"
             }
 
         }

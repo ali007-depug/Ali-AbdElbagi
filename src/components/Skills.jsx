@@ -2,17 +2,17 @@ import { motion } from "framer-motion";
 import propTypes from "prop-types";
 export default function Skills() {
   const skills = {
-    html: "/html.webp",
-    css: "/css3.webp",
-    js: "/js.webp",
-    sass: "/sass.webp",
-    react: "/react.webp",
-    tailwind: "/tailwindCss.webp",
-    vite:"/vite.svg",
-    git:"/git.webp",
-    github: "/github.webp",
-    linux : "./linux.webp",
-    cli: "./cli.webp"
+    html: "html.webp",
+    css: "css3.webp",
+    js: "js.webp",
+    sass: "sass.webp",
+    react: "react.webp",
+    tailwind: "tailwindCss.webp",
+    vite:"vite.svg",
+    git:"git.webp",
+    github: "github.webp",
+    linux : "linux.webp",
+    cli: "cli.webp"
   };
 
   return (

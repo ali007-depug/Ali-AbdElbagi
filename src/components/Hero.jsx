@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import TypewriterComponent from "typewriter-effect";
 
-const myImgs = ["/me.webp", "/me2.webp", "/me3.webp"];
+const myImgs = ["me.webp", "me2.webp", "me3.webp"];
 
 export default function Hero() {
   const [imgIndex, setImgIndex] = useState(0);

@@ -36,7 +36,7 @@ export default function Header() {
         <div className="header__avatarWithInfo">
           <img
             className="max-sm:hidden w-[50px] rounded-full"
-            src="/me.webp"
+            src="me.webp"
             alt="Ali AbdElbagi picture"
           />
           <div className="header__info mt-2 text-p-color">
