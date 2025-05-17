@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-xs: 30rem;
+  --color-p-color: hsl(211, 37%, 21%);
+  --color-s-color: hsl(206, 27%, 45%);
+  --color-n-color: hsl(197, 27%, 67%);
+  --color-bg-color: hsl(65, 54%, 86%);
+  --color-gr1: hsl(211, 37%, 21%);
+
+  --text-fluid :  clamp(1.875rem, 1.878vw + 1.435rem, 3.125rem);
+  --spacing-dyp : clamp(0.813rem, -0.491rem + 5.561vi, 4.375rem);
+
+
+  --animate-grade: grade 8s ease infinite;
+
+  @keyframes grade {
+    0,
+    100% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+}
+
+
