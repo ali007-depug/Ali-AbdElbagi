@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import propTypes from "prop-types";
+import { Fragment } from "react";
 export default function Skills() {
   const skills = {
     html: "html.webp",
@@ -39,7 +40,7 @@ function Badges({ skills }) {
         },
       }}>
       {Object.entries(skills ?? {}).map(([tech, iconSrc], index) => (
-        <>
+        <Fragment key={index}>
         <motion.div className="flex flex-col gap-4 items-center rounded-md shadow-2xl "
         variants={{
           hidden: { opacity: 0, y: 30 },
@@ -47,7 +48,7 @@ function Badges({ skills }) {
         }}
         transition={{ duration: 0.4, ease: "easeOut" }}>
           <img
-            key={index}
+            // key={index}
             src={iconSrc}
             alt={tech}
             title={tech}
@@ -56,7 +57,7 @@ function Badges({ skills }) {
           />
           <h1 className="uppercase text-s-color font-semibold mb-2 tracking-widest">{tech}</h1>
           </motion.div>
-        </>
+        </Fragment>
       ))}
     </motion.div>
   );

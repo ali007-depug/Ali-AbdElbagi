@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeIndex,setActiveIndex] = useState(0)
+  // const [activeIndex, setActiveIndex] = useState(0);
   const navLinks = [
     { id: 0, link: "home" },
     { id: 1, link: "about" },
@@ -10,13 +11,25 @@ export default function Header() {
     { id: 4, link: "contact" },
   ];
 
+  const location = useLocation();
+
   const links = navLinks.map((link) => {
     return (
       <li key={link.id}>
-        <a onClick={()=>setActiveIndex(link.id)} className={activeIndex === link.id ? "border-b-s-color border-b-[3px]" : ""} href={`#${link.link}`}>{link.link}</a>
-      </li> 
+        <Link
+          to={`/${link.link === "home" ? "" : link.link}`}
+          onClick={() => console.log("Link is clicked")}
+          className={`${
+            location.pathname === `/${link.link === "home" ? "" : link.link}`
+              ? "border-b-s-color border-b-[3px]"
+              : ""
+          }`}
+        >
+          {link.link}
+        </Link>
+      </li>
     );
-  })
+  });
   function toggleMenu() {
     setIsMenuOpen(!isMenuOpen);
   }
@@ -31,11 +44,11 @@ export default function Header() {
         aria-hidden={!isMenuOpen}
       ></div>
       {/* header  */}
-      <header className="flex items-center justify-between py-4 px-dyp z-30 sticky">
+      <header className="flex items-center justify-between py-4 px-dyp z-30 sticky"> 
         {/* avatar + name  */}
-        <div className="header__avatarWithInfo">
+        <div className="header__avatarWithInfo w-1/3">
           <img
-            className="max-sm:hidden w-[50px] rounded-full"
+            className="max-sm:hidden w-[50px] rounded-full" 
             src="me.webp"
             alt="Ali AbdElbagi picture"
           />
@@ -49,7 +62,7 @@ export default function Header() {
           {/* show hamburger menu on the mobile screen */}
           <button
             onClick={toggleMenu}
-            className="sm:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-p-color cursor-pointer"
+            className="sm:hidden p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-p-color cursor-pointer"
             aria-expanded={isMenuOpen}
             aria-controls="mobileMenu"
             aria-label={isMenuOpen ? "close menu" : "open menu"}
@@ -74,7 +87,7 @@ export default function Header() {
           </ul>
 
           {/* desktop nav */}
-          <ul className="hidden sm:flex space-x-8  min-h-[90px] [&_li]:w-fit  [&_a]:px-4 [&_a]:py-2  [&_a]:inline-block  [&_a]:capitalize [&_a]:font-semibold [&_a]:text-p-color [&_a]:hover:border-b-[3px] [&_a]:hover:border-s-color [&_a]:focus:outline-none [&_a]:focus:ring-2 [&_a]:focus:ring-offset-2 [&_a]:focus:ring-white">
+          <ul className="hidden sm:flex sm:flex-wrap sm:justify-center space-x-8  min-h-[90px] [&_li]:w-fit  [&_a]:px-4 [&_a]:py-2  [&_a]:inline-block  [&_a]:capitalize [&_a]:font-semibold [&_a]:text-p-color [&_a]:hover:border-b-[3px] [&_a]:hover:border-s-color [&_a]:focus:outline-none [&_a]:focus:ring-2 [&_a]:focus:ring-offset-2 [&_a]:focus:ring-white">
             {links}
           </ul>
         </nav>
