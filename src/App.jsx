@@ -4,7 +4,6 @@ const Home = lazy(()=> import("./pages/Home"));
 import MyWorks from "./pages/MyWorks";
 import AboutMe from "./pages/AboutMe";
 import MySkills from "./pages/MySkills";
-import Contact from "./pages/Contact";
 import MyWebSite from "./layout/MyWebSite";
 import Loading from "./components/Loading";
 
@@ -20,7 +19,6 @@ function App() {
           <Route path="works" element={<MyWorks />} />
           <Route path="about" element={<AboutMe />} />
           <Route path="skills" element={<MySkills/>}/>
-          <Route path="contact" element={<Contact/>}/>
         </Route>
       </Routes>
 
