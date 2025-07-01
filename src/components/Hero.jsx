@@ -2,11 +2,11 @@ import { useEffect } from "react";
 import { useState } from "react";
 import TypewriterComponent from "typewriter-effect";
 
-const myImgs = ["me.webp", "me2.webp", "me3.webp"];
-
 export default function Hero() {
   const [imgIndex, setImgIndex] = useState(0);
   const [fade, setFade] = useState(true);
+
+  const myImgs = ["me.webp", "me2.webp", "me3.webp"];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -17,16 +17,17 @@ export default function Hero() {
       }, 500); // match fade duration
     }, 5000);
 
+    // clean up the side effect
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <section className="p-4 text-center font-extrabold ">
+    <section className="p-4 text-center font-extrabold">
       {/* The avatars that chagne every 5 seconds */}
       <div className="relative z-10  p-6 rounded-xl md:flex md:justify-between ">
         <img
           src={myImgs[imgIndex]}
-          alt=""
+          alt="author avatar"
           className={`shadow-xl w-60  md:w-70 md:h-70 lg:w-100 lg:h-100   rounded-full lg:mx-auto my-auto max-md:mx-auto transition-all duration-1000 ease-in-out ${
             fade ? "opacity-100" : "opacity-0"
           }`}
@@ -37,7 +38,7 @@ export default function Hero() {
           <h2 className="text-p-color max-md:my-5 text-4xl sm:text-5xl font-extrabold">
             HI
           </h2>
-          {/* Moving texts  */}
+          {/* typewriter texts  */}
           <h3 className="text-p-color text-fluid font-extrabold my-5">
             <TypewriterComponent
               options={{
@@ -55,7 +56,7 @@ export default function Hero() {
           </p>
           {/* link to my linked in */}
           <a
-            href="mailto:aliroma849@gmail.com"
+            href="https://www.linkedin.com/in/ali-abdelbagi-02313b223/"
             target="_blank"
             className="block w-fit max-md:mx-auto rounded-md my-3 bg-p-color text-bg-color px-4 py-4 hover:bg-n-color hover:text-p-color"
           >

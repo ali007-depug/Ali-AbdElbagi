@@ -1,27 +1,31 @@
-// style
-import Home from "./pages/Home";
+import { Suspense,lazy } from "react";
+import { Routes, Route } from "react-router-dom";
+const Home = lazy(()=> import("./pages/Home"));
 import MyWorks from "./pages/MyWorks";
 import AboutMe from "./pages/AboutMe";
-import Skills from "./pages/Skills";
+import MySkills from "./pages/MySkills";
 import Contact from "./pages/Contact";
-import { Routes, Route } from "react-router-dom";
 import MyWebSite from "./layout/MyWebSite";
+import Loading from "./components/Loading";
+
 function App() {
   return (
     <>
-    
+      <Suspense fallback={<Loading/>}>
+
       <Routes>
- 
         <Route path="/" element={<MyWebSite />}> 
           <Route index element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="works" element={<MyWorks />} />
           <Route path="about" element={<AboutMe />} />
-          <Route path="skills" element={<Skills/>}/>
+          <Route path="skills" element={<MySkills/>}/>
           <Route path="contact" element={<Contact/>}/>
         </Route>
-
       </Routes>
+
+      </Suspense>
+
     </>
   );
 }

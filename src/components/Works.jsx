@@ -5,9 +5,9 @@ import { ProjcetsProvider } from "../contexts/ProjectsContext";
 export default function Work() {
  
   return (
-    <div className="px-dyp my-15 pb-30 bg-bg-color relative" id="works">
+    <div className="px-dyp my-15 pb-30 bg--color relative" id="works">
       {/* section title */}
-      <h1 className="text-center font-bold text-fluid text-p-color mb-5">
+      <h1 className="text-center font-bold text-dyTitle text-p-color mb-5">
         My Works
       </h1>
       {/* wrapper for cards */}

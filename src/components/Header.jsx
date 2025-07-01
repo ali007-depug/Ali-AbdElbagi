@@ -1,25 +1,28 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  // const [activeIndex, setActiveIndex] = useState(0);
+
   const navLinks = [
     { id: 0, link: "home" },
     { id: 1, link: "about" },
     { id: 2, link: "works" },
     { id: 3, link: "skills" },
-    { id: 4, link: "contact" },
   ];
 
   const location = useLocation();
+
+  function toggleMenu() {
+    setIsMenuOpen(!isMenuOpen);
+  }
 
   const links = navLinks.map((link) => {
     return (
       <li key={link.id}>
         <Link
           to={`/${link.link === "home" ? "" : link.link}`}
-          onClick={() => console.log("Link is clicked")}
-          className={`${
+          className={`transition-all duration-100 ease-in-out ${
             location.pathname === `/${link.link === "home" ? "" : link.link}`
               ? "border-b-s-color border-b-[3px]"
               : ""
@@ -30,9 +33,6 @@ export default function Header() {
       </li>
     );
   });
-  function toggleMenu() {
-    setIsMenuOpen(!isMenuOpen);
-  }
 
   return (
     <>
@@ -43,20 +43,28 @@ export default function Header() {
         }`}
         aria-hidden={!isMenuOpen}
       ></div>
+      {/* === End overlay === */}
+
       {/* header  */}
-      <header className="flex items-center justify-between py-4 px-dyp z-30 sticky"> 
-        {/* avatar + name  */}
+      <header className="flex items-center justify-between py-4 px-dyp z-30 sticky">
+        {/* avatar + info  */}
         <div className="header__avatarWithInfo w-1/3">
+          {/* avatar */}
+          <Link to={'/'}>
           <img
-            className="max-sm:hidden w-[50px] rounded-full" 
+            className="max-sm:hidden w-[50px] rounded-full"
             src="me.webp"
             alt="Ali AbdElbagi picture"
-          />
+            />
+          {/* info */}
           <div className="header__info mt-2 text-p-color">
             <h2 className={`text-lg font-bold sm:text-xl`}>Ali AbdElbagi</h2>
             <p className="text-xs font-semiboldbold">Front End Developer</p>
           </div>
+            </Link>
         </div>
+        {/* === End avatar + info === */}
+
         {/* nav */}
         <nav aria-label="mainNav">
           {/* show hamburger menu on the mobile screen */}
@@ -67,6 +75,7 @@ export default function Header() {
             aria-controls="mobileMenu"
             aria-label={isMenuOpen ? "close menu" : "open menu"}
           >
+            {/* menu icon */}
             <img
               src={isMenuOpen ? "./icon-close.svg" : "./icon-hamburger.svg"}
               alt=""
@@ -85,13 +94,17 @@ export default function Header() {
           >
             {links}
           </ul>
+          {/* === End mobile nav === */}
 
           {/* desktop nav */}
           <ul className="hidden sm:flex sm:flex-wrap sm:justify-center space-x-8  min-h-[90px] [&_li]:w-fit  [&_a]:px-4 [&_a]:py-2  [&_a]:inline-block  [&_a]:capitalize [&_a]:font-semibold [&_a]:text-p-color [&_a]:hover:border-b-[3px] [&_a]:hover:border-s-color [&_a]:focus:outline-none [&_a]:focus:ring-2 [&_a]:focus:ring-offset-2 [&_a]:focus:ring-white">
             {links}
           </ul>
+          {/* === End desktop nav === */}
         </nav>
+        {/* === End nav === */}
       </header>
+      {/* === End header === */}
     </>
   );
 }

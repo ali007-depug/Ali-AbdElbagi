@@ -2,10 +2,10 @@ import propTypes from "prop-types";
 import { useProjects } from "../contexts/ProjectsContext";
 
 export default function WorkCards({ customStyle ,numberOfCards  }) {
-  // worksItems
-  // mappign through cards
-  const { filterdProjects } = useProjects(); // this return work items
 
+  const { filterdProjects } = useProjects(); // this return work items
+  
+  // mappign through cards
   const mapinnCards = filterdProjects.map((work,index) => {
     if(index <= numberOfCards){
     return (
@@ -32,7 +32,7 @@ function Card({ title, details, thumb, href, repo, builtWith, customStyle }) {
   return (
     // wrapper
     <article
-      className={`work bg-white shadow-2xl rounded-md overflow-hidden ${customStyle} `}
+      className={`work bg-white shadow-2xl shadow-p-color rounded-md overflow-hidden ${customStyle} `}
     >
       {/* anchor tag */}
       <div className="group relative">
@@ -50,20 +50,20 @@ function Card({ title, details, thumb, href, repo, builtWith, customStyle }) {
           {/* project name */}
           <h2 className="text-p-color text-xl font-bold">{title}</h2>
           {/* project details */}
-          <h4 className="text-s-color text-sm font-semibold">{details}</h4>
+          <h4 className="text-s-color text-sm capitalize font-semibold">{details}</h4>
           {/* Tech that used in projects wrapper & repo */}
           <div className="mt-4 flex items-center justify-between gap-3.5 @container">
             {/* title */}
             {/* loop over the tech icons */}
             <div className="flex gap-3 items-center bg-">
-              <span className="text-n-color font-bold">Built with</span>
+              <span className="text-sky-800 font-bold">Built with</span>
               {Object.entries(builtWith ?? {}).map(([tech, iconSrc], index) => (
                   <img
                     key={index}
                     src={iconSrc}
                     alt={tech}
                     title={tech}
-                    className="size-8"
+                    className="@md:size-8 size-6"
                   />
               ))}
             </div>
@@ -84,7 +84,7 @@ function Card({ title, details, thumb, href, repo, builtWith, customStyle }) {
               <a
                 href={repo}
                 target="_blank"
-                className="flex items-center gap-1  px-2 py-2 rounded-[5px] text-p-color font-semibold hover:[&_img]:animate-spin"
+                className="flex items-center gap-1  px-2 py-2 rounded-[5px] text-p-color font-semibold hover:[&_img]:animate-bounce"
                 title="Code"
               >
                 <img src="code.webp" alt="" className="size-8" />

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --breakpoint-xs: 30rem;
+  --breakpoint-xs: 26rem;
   --color-p-color: hsl(211, 37%, 21%);
   --color-s-color: hsl(206, 27%, 45%);
   --color-n-color: hsl(197, 27%, 67%);
@@ -9,6 +9,7 @@
   --color-gr1: hsl(211, 37%, 21%);
 
   --text-fluid :  clamp(1.875rem, 1.878vw + 1.435rem, 3.125rem);
+  --text-dyTitle : clamp(3rem, 2.066vw + 2.516rem, 4.375rem);
   --spacing-dyp : clamp(0.813rem, -0.491rem + 5.561vi, 4.375rem);
 
 
