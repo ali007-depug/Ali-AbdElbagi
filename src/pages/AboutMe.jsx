@@ -61,8 +61,8 @@ export default function AboutMe() {
                 Unversity & High School :
               </h4>
               <p>
-                In 2017, I took a big step and joined  University of Gezira,
-                in the Faculty of Engineering and Technology, where I studied
+                In 2017, I took a big step and joined University of
+                Gezira,Faculty of Engineering and Technology, where I studied
                 Computer Engineering. I started learning programming in high
                 school, when we were taught the basics of Pascal and binary
                 number systems. Then in 2018, I wrote my first real lines of
