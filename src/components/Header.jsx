@@ -22,6 +22,7 @@ export default function Header() {
       <li key={link.id}>
         <Link
           to={`/${link.link === "home" ? "" : link.link}`}
+          onClick={toggleMenu}
           className={`transition-all duration-100 ease-in-out ${
             location.pathname === `/${link.link === "home" ? "" : link.link}`
               ? "border-b-s-color border-b-[3px]"

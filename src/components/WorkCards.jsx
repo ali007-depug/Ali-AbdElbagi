@@ -1,6 +1,7 @@
 import propTypes from "prop-types";
 import { useProjects } from "../contexts/ProjectsContext";
 import { motion } from "motion/react";
+import { Fragment } from "react";
 
 export default function WorkCards({ customStyle ,numberOfCards  }) {
 
@@ -10,9 +11,8 @@ export default function WorkCards({ customStyle ,numberOfCards  }) {
   const mapinnCards = filterdProjects.map((work,index) => {
     if(index <= numberOfCards){
     return (
-      <>
+      <Fragment key={work.id}>
       <motion.div
-        key={work.id}
         initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
@@ -31,7 +31,7 @@ export default function WorkCards({ customStyle ,numberOfCards  }) {
       customStyle={customStyle}
       />
       </motion.div>
-      </>
+      </Fragment>
     );
   }
   });
