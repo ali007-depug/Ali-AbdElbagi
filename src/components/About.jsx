@@ -14,7 +14,7 @@ export default function About() {
           <div className="text">
             <p className="text-white font-medium text-lg leading-relaxed max-w-xl mx-auto lg:mx-0 mb-10 max-md:text-center">
               I'm <span className="font-extrabold text-sky-400">Ali</span>, a
-              Computer Engineer from Sudan who graduated from the University of
+              Computer Engineer from Sudan who graduated from University of
               Gazira in 2025.
             </p>
             <p className="text-white max-md:text-center font-medium text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
