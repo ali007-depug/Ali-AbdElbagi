@@ -2,6 +2,7 @@ import { ProjcetsProvider, useProjects } from "../contexts/ProjectsContext";
 import WorkCards from "../components/WorkCards";
 import Contact from "../components/Contact";
 
+import { motion } from "motion/react";
 export default function MyWorks() {
 
   return (
@@ -37,15 +38,20 @@ function TapList() {
   
   const maplist = list.map((item) => {
     return (
-      <button
+      <motion.button
         key={item}
+        whileHover={{ scale: 0.95 }}
+          whileTap={{ scale: 0.95 }}
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
         className={`${
-          selectedCategory === item ? "bg-s-color !text-bg-color " : "scale-95 hover:scale-100 hover:bg-s-color hover:text-bg-color"
-        } capitalize cursor-pointer sm:not-first:ml-2 max-sm:not-last:mb-2 px-2 py-3 rounded text-p-color bg-n-color/30 max-sm:min-w-20 sm:min-w-35 font-extrabold   transition duration-300`}
+          selectedCategory === item ? "bg-s-color !text-bg-color " : ""
+        } capitalize cursor-pointer sm:not-first:ml-2 max-sm:not-last:mb-2 px-2 py-3 rounded text-p-color bg-n-color/30 max-sm:min-w-20 sm:min-w-35 font-extrabold `}
         onClick={() => setSelectedCategory(item)}
       >
         {item}
-      </button>
+      </motion.button>
     );
   });
 

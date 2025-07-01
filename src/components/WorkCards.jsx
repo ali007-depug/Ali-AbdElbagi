@@ -1,5 +1,6 @@
 import propTypes from "prop-types";
 import { useProjects } from "../contexts/ProjectsContext";
+import { motion } from "motion/react";
 
 export default function WorkCards({ customStyle ,numberOfCards  }) {
 
@@ -9,16 +10,28 @@ export default function WorkCards({ customStyle ,numberOfCards  }) {
   const mapinnCards = filterdProjects.map((work,index) => {
     if(index <= numberOfCards){
     return (
-      <Card
+      <>
+      <motion.div
         key={work.id}
-        title={work.title}
-        details={work.details}
-        thumb={work.img}
-        href={work.href}
-        repo={work.repo}
-        builtWith={work.builtWith}
-        customStyle={customStyle}
+        initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.5,
+            delay: index * 0.1, // stagger effect
+            ease: "easeOut",
+          }}
+      >
+      <Card
+      title={work.title}
+      details={work.details}
+      thumb={work.img}
+      href={work.href}
+      repo={work.repo}
+      builtWith={work.builtWith}
+      customStyle={customStyle}
       />
+      </motion.div>
+      </>
     );
   }
   });

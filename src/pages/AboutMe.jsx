@@ -1,12 +1,13 @@
 import Sidepanel from "../components/SidePanel";
 import Contact from "../components/Contact";
+import { motion } from "motion/react";
 export default function AboutMe() {
   return (
     <>
       <section className="px-dyp py-10 relative bg-p-color ">
         {/* seticon title */}
         <h1 className="text-dyTitle mx-auto w-fit font-bold  text-white my-5">
-        About Me
+          About Me
         </h1>
         {/* small brief about me */}
         <Sidepanel />
@@ -17,12 +18,19 @@ export default function AboutMe() {
           {/* img Section */}
           <div className="hidden  sm:block sm:w-1/2  lg:w-1/3 order-1 sticky  top-10 h-fit shadow-lg shadow-p-color/50 rounded overflow-hidden">
             <img src="Ali.webp" alt="Thumb" className="" />
-            <p className="absolute bottom-0 left-2 text-sky-500 bg-p-color rounded px-2 italic text-sm font-bold">on: 23-7-2022</p>
+            <p className="absolute bottom-0 left-2 text-sky-500 bg-p-color rounded px-2 italic text-sm font-bold">
+              on: 23-7-2022
+            </p>
           </div>
           {/* ===== End img Section ====== */}
 
           {/* text section pragrpah */}
-          <div className="w-fit sm:w-3/4 lg:w-3/4 space-y-5 [&_h4]:text-sky-300 [&_p]:text-lg [&_p]:text-white/95 [&_p]:font-medium [&_p]:text- [&_p]:first-letter:text-3xl [&_a]:text-sky-400 [&_a]:underline">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }} // Start hidden & pushed down
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }} // Animation duration
+            className="w-fit sm:w-3/4 lg:w-3/4 space-y-5 [&_h4]:text-sky-300 [&_p]:text-lg [&_p]:text-white/95 [&_p]:font-medium [&_p]:text- [&_p]:first-letter:text-3xl [&_a]:text-sky-400 [&_a]:underline"
+          >
             {/* title for the text section */}
             <h3 className="text-white text-4xl lg:text-6xl text-balance font-bold">
               How my Story begin ?
@@ -107,7 +115,14 @@ export default function AboutMe() {
               </p>
               {/* part 2 */}
               <p>
-              Over time, I focused on improving my CSS skills even further. I started learning CSS preprocessors like Sass, which helped me write more structured and maintainable stylesheets by using variables, nesting, and mixins. I also explored Tailwind CSS, a utility-first framework that allowed me to build modern, responsive UIs faster by composing classes directly in the markup. These tools significantly boosted my productivity and helped me create cleaner, scalable designs.
+                Over time, I focused on improving my CSS skills even further. I
+                started learning CSS preprocessors like Sass, which helped me
+                write more structured and maintainable stylesheets by using
+                variables, nesting, and mixins. I also explored Tailwind CSS, a
+                utility-first framework that allowed me to build modern,
+                responsive UIs faster by composing classes directly in the
+                markup. These tools significantly boosted my productivity and
+                helped me create cleaner, scalable designs.
               </p>
               {/* part 3 */}
               <p>
@@ -171,13 +186,13 @@ export default function AboutMe() {
               </p>
             </div>
             {/*  ====  End With forntend Developement  =====  */}
-          </div>
+          </motion.div>
           {/* ====== End text section Pragrpah ===== */}
         </div>
         {/* ==== End text + img Wrapper ==== */}
       </section>
 
-      <Contact/>
+      <Contact />
     </>
   );
 }
