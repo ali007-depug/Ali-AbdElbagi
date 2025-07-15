@@ -15,14 +15,15 @@ export default function SkillsBadges({cardWidth='350px',isLearntSkills = true,bg
         vite:"vite.svg",
         firebase:"firebase.webp",
         linux : "linux.webp",
-        cli: "cli.webp"
+        cli: "cli.webp",
+        typeScript : "typeScript.webp",
       };
 
+      
       const upComingSkills = {
         nextjs:"nextJs.webp",
         mongoDb:"mongoDB.webp",
         expressJs : "express.webp",
-        typeScript : "typeScript.webp",
       }
 
         return (

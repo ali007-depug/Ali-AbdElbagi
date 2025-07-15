@@ -1,5 +1,6 @@
 import { Suspense,lazy } from "react";
 import { Routes, Route } from "react-router-dom";
+
 const Home = lazy(()=> import("./pages/Home"));
 import MyWorks from "./pages/MyWorks";
 import AboutMe from "./pages/AboutMe";
@@ -10,8 +11,9 @@ import Loading from "./components/Loading";
 function App() {
   return (
     <>
-      <Suspense fallback={<Loading/>}>
 
+      <Suspense fallback={<Loading/>}>
+      
       <Routes>
         <Route path="/" element={<MyWebSite />}> 
           <Route index element={<Home />} />
@@ -20,6 +22,7 @@ function App() {
           <Route path="about" element={<AboutMe />} />
           <Route path="skills" element={<MySkills/>}/>
         </Route>
+
       </Routes>
 
       </Suspense>

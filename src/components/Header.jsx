@@ -17,12 +17,28 @@ export default function Header() {
     setIsMenuOpen(!isMenuOpen);
   }
 
-  const links = navLinks.map((link) => {
+  const Mobilelinks = navLinks.map((link) => {
     return (
       <li key={link.id}>
         <Link
           to={`/${link.link === "home" ? "" : link.link}`}
           onClick={toggleMenu}
+          className={`transition-all duration-100 ease-in-out ${
+            location.pathname === `/${link.link === "home" ? "" : link.link}`
+              ? "border-b-s-color border-b-[3px]"
+              : ""
+          }`}
+        >
+          {link.link}
+        </Link>
+      </li>
+    );
+  });
+  const Desktoplinks = navLinks.map((link) => {
+    return (
+      <li key={link.id}>
+        <Link
+          to={`/${link.link === "home" ? "" : link.link}`}
           className={`transition-all duration-100 ease-in-out ${
             location.pathname === `/${link.link === "home" ? "" : link.link}`
               ? "border-b-s-color border-b-[3px]"
@@ -93,13 +109,13 @@ export default function Header() {
                 : "hidden"
             }
           >
-            {links}
+            {Mobilelinks}
           </ul>
           {/* === End mobile nav === */}
 
           {/* desktop nav */}
           <ul className="hidden sm:flex sm:flex-wrap sm:justify-center space-x-8  min-h-[90px] [&_li]:w-fit  [&_a]:px-4 [&_a]:py-2  [&_a]:inline-block  [&_a]:capitalize [&_a]:font-semibold [&_a]:text-p-color [&_a]:hover:border-b-[3px] [&_a]:hover:border-s-color [&_a]:focus:outline-none [&_a]:focus:ring-2 [&_a]:focus:ring-offset-2 [&_a]:focus:ring-white">
-            {links}
+            {Desktoplinks}
           </ul>
           {/* === End desktop nav === */}
         </nav>
