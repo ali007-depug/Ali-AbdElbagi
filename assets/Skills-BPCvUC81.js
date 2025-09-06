@@ -1,0 +1,1 @@
+import{j as s}from"./index-BzotIZp_.js";import{S as t}from"./SkillsBadges-BXzEctCr.js";function i(){return s.jsxs("div",{className:"px-dyp py-10 bg-p-color",id:"skills",children:[s.jsx("h1",{className:"text-center font-bold text-dyTitle text-white mb-5",children:"My Skills"}),s.jsx(t,{})]})}export{i as default};
