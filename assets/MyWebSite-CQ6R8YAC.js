@@ -1,2 +1,0 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/Header-BBhOjlfs.js","assets/index-BzotIZp_.js","assets/index-B9nMO9u5.css"])))=>i.map(i=>d[i]);
-import{j as r,r as s,O as e,_ as t}from"./index-BzotIZp_.js";import{P as a}from"./ProjectsContext-DWiLdTiA.js";const i=s.lazy(()=>t(()=>import("./Header-BBhOjlfs.js"),__vite__mapDeps([0,1,2])));function c(){return r.jsxs("div",{className:"h-[100dvh]",children:[r.jsx(i,{}),r.jsx("main",{className:"",children:r.jsx(a,{children:r.jsx(e,{})})})]})}export{c as default};
