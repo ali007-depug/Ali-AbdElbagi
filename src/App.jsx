@@ -2,9 +2,9 @@ import { Suspense,lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
-const MyWorks = lazy(()=> import("./pages/MyWorks"));
-const AboutMe = lazy(()=> import("./pages/AboutMe"));
-const MySkills = lazy(()=> import("./pages/MySkills"));
+import MyWorks from "./pages/MyWorks";
+import AboutMe from "./pages/AboutMe";
+import MySkills from "./pages/MySkills";
 import MyWebSite from "./layout/MyWebSite";
 import Loading from "./components/Loading";
 
