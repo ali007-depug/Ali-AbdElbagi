@@ -27,6 +27,8 @@ export default function Hero() {
       <div className="relative z-10  p-6 rounded-xl md:flex md:justify-between ">
         <img
           src={myImgs[imgIndex]}
+          width={280}
+          height={280}
           alt="author avatar"
           className={`shadow-xl w-60  md:w-70 md:h-70 lg:w-100 lg:h-100   rounded-full lg:mx-auto my-auto max-md:mx-auto transition-all duration-1000 ease-in-out ${
             fade ? "opacity-100" : "opacity-0"
