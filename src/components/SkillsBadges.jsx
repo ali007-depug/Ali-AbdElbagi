@@ -19,7 +19,7 @@ export default function SkillsBadges({cardWidth='350px',isLearntSkills = true,bg
         typeScript : "typeScript.webp",
       };
 
-      
+
       const upComingSkills = {
         nextjs:"nextJs.webp",
         mongoDb:"mongoDB.webp",
@@ -38,7 +38,7 @@ export default function SkillsBadges({cardWidth='350px',isLearntSkills = true,bg
                   },
                 },
               }}>
-                {/* render leanrt skill or upcoming skills "the ones that i want to learn in future" */}
+                {/* render learnt skill or upcoming skills "the ones that i want to learn in future" */}
                 {isLearntSkills ? 
               Object.entries(skills ?? {}).map(([tech, iconSrc], index) => (
                 <Fragment key={index}>
