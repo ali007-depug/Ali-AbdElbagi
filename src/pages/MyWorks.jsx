@@ -2,7 +2,9 @@ import { ProjcetsProvider, useProjects } from "../contexts/ProjectsContext";
 import WorkCards from "../components/WorkCards";
 import Contact from "../components/Contact";
 
-import { motion } from "motion/react";
+// import { motion } from "motion/react";
+import { motion } from "framer-motion";
+
 export default function MyWorks() {
 
   return (
