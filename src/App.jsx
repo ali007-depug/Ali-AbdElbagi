@@ -5,7 +5,7 @@ const Home = lazy(()=> import("./pages/Home"));
 const MyWorks = lazy(()=> import("./pages/MyWorks"));
 const AboutMe = lazy(()=> import("./pages/AboutMe"));
 const MySkills = lazy(()=> import("./pages/MySkills"));
-const MyWebSite = lazy(()=> import("./layout/MyWebSite"));
+import MyWebSite from "./layout/MyWebSite";
 import Loading from "./components/Loading";
 
 function App() {
