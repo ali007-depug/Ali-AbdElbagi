@@ -1,9 +1,9 @@
-import About from "../components/About";
-import Hero from "../components/Hero";
-import Works from "../components/Works";
-import Skills from "../components/Skills";
-import Contact from "../components/Contact";
-
+import { lazy } from "react";
+const About = lazy(() => import("../components/About"));
+const Hero = lazy(() => import("../components/Hero"));
+const Works = lazy(() => import("../components/Works"));
+const Skills = lazy(() => import("../components/Skills"));
+const Contact = lazy(() => import("../components/Contact"));
 export default function Home() {
   return (
     <>

@@ -1,6 +1,5 @@
 import Contact from "../components/Contact";
 import SkillsBadges from "../components/SkillsBadges";
-
 export default function MySkills() {
   return (
     <>

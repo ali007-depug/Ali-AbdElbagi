@@ -1,6 +1,7 @@
+import { lazy } from "react";
 import { Outlet } from "react-router-dom";
-import Header from "../components/Header";
 import { ProjcetsProvider } from "../contexts/ProjectsContext";
+const Header = lazy(()=> import("../components/Header"));
 
 export default function MyWebSite() {
   return (
