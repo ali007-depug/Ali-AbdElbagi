@@ -1,12 +1,14 @@
 import { Suspense,lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 
-// const Home = lazy(()=> import("./pages/Home"));
-import Home from "./pages/Home";
+const MyWebSite = lazy(()=> import("./layout/MyWebSite"))
+
+// import Home from "./pages/Home";
+const Home = lazy(()=> import("./pages/Home"));
 const MyWorks = lazy(()=> import("./pages/MyWorks"));
 const AboutMe = lazy(()=> import("./pages/AboutMe"));
 const MySkills = lazy(()=> import("./pages/MySkills"));
-import MyWebSite from "./layout/MyWebSite";
+
 import Loading from "./components/Loading";
 
 function App() {

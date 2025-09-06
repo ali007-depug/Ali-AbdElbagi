@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import { motion } from "framer-motion";
 
+
 export default function SkillsBadges({cardWidth='350px',isLearntSkills = true,bg='bg-sky-900'}){
   
     const skills = {
@@ -53,6 +54,7 @@ export default function SkillsBadges({cardWidth='350px',isLearntSkills = true,bg
                     alt={tech}
                     title={tech}
                     className="w-10 mt-2.5"
+                    loading="lazy"
                     
                   />
                   <h1 className="uppercase text-white font-semibold mb-2 tracking-widest">{tech}</h1>
@@ -72,6 +74,7 @@ export default function SkillsBadges({cardWidth='350px',isLearntSkills = true,bg
                   alt={tech}
                   title={tech}
                   className="w-10 mt-2.5"
+                  loading="lazy"
                   
                 />
                 <h1 className="uppercase text-white font-semibold mb-2 tracking-widest">{tech}</h1>

@@ -77,6 +77,7 @@ function Card({ title, details, thumb, href, repo, builtWith, customStyle }) {
                     alt={tech}
                     title={tech}
                     className="@md:size-8 size-6"
+                    loading="lazy"
                   />
               ))}
             </div>
