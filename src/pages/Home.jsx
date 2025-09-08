@@ -1,6 +1,7 @@
+import { lazy } from "react";
 import About from "../components/About";
 import Hero from "../components/Hero";
-import Works from "../components/Works";
+const Works = lazy(() => import("../components/Works"));
 import Skills from "../components/Skills";
 import Contact from "../components/Contact";
 

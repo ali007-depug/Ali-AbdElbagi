@@ -1,4 +1,3 @@
-import { lazy } from "react";
 import { Outlet } from "react-router-dom";
 import { ProjcetsProvider } from "../contexts/ProjectsContext";
 import Header from "../components/Header";
