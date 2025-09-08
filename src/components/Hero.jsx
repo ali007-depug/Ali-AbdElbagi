@@ -1,6 +1,6 @@
 import { useEffect,useState } from "react";
 
-import TypewriterComponent from "typewriter-effect";
+// import TypewriterComponent from "typewriter-effect";
 
 export default function Hero() {
   const [imgIndex, setImgIndex] = useState(0);
@@ -42,13 +42,14 @@ export default function Hero() {
           </h2>
 
           <h3 className="text-p-color text-fluid font-extrabold my-5">
-            <TypewriterComponent
+            i'm Ali Abd-Elbagi
+            {/* <TypewriterComponent
               options={{
                 strings: ["I'm Ali AbdElbagi", "I'm a Frontend Developer"],
                 autoStart: true,
                 loop: true,
               }}
-            />
+            /> */}
           </h3>
 
           <p className="text-s-color font-semibold text-lg text-balance sm:text-xl sm:w-1/2 md:w-fit lg:w-[40ch] max-md:mx-auto">
