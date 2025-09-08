@@ -29,6 +29,7 @@ export default function Hero() {
           src={myImgs[imgIndex]}
           width={280}
           height={280}
+          loading="lazy"
           alt="author avatar"
           className={`shadow-xl w-60  md:w-70 md:h-70 lg:w-100 lg:h-100   rounded-full lg:mx-auto my-auto max-md:mx-auto transition-all duration-1000 ease-in-out ${
             fade ? "opacity-100" : "opacity-0"
