@@ -1,4 +1,5 @@
 import { useEffect,useState } from "react";
+import TypeWritter from "./TypeWritter";
 
 // import TypewriterComponent from "typewriter-effect";
 
@@ -42,7 +43,7 @@ export default function Hero() {
           </h2>
 
           <h3 className="text-p-color text-fluid font-extrabold my-5">
-            i'm Ali Abd-Elbagi
+            <TypeWritter texts={"I'm Ali Abd-Elbagi"} typingSpeed={100} />
             {/* <TypewriterComponent
               options={{
                 strings: ["I'm Ali AbdElbagi", "I'm a Frontend Developer"],
