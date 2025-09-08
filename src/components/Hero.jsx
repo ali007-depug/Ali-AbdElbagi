@@ -28,7 +28,7 @@ export default function Hero() {
           src={myImgs[imgIndex]}
           width={280}
           height={280}
-          loading="lazy"
+          // loading="lazy"
           alt="Ali AbdElbagi avatar"
           className={`shadow-xl w-60 md:w-70 md:h-70 lg:w-100 lg:h-100 rounded-full lg:mx-auto my-auto max-md:mx-auto 
             transition-opacity duration-700 ease-in-out 
