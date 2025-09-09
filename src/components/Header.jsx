@@ -70,8 +70,10 @@ export default function Header() {
           <Link to={'/'}>
           <img
             className="max-sm:hidden w-[50px] rounded-full"
-            src="me.webp"
+            src="me.jpg"
             alt="Ali AbdElbagi picture"
+            width={50}
+            height={50}
             />
           {/* info */}
           <div className="header__info mt-2 text-p-color">

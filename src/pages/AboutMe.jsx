@@ -17,7 +17,7 @@ export default function AboutMe() {
         <div className="w-full flex gap-4 ">
           {/* img Section */}
           <div className="hidden  sm:block sm:w-1/2  lg:w-1/3 order-1 sticky  top-10 h-fit shadow-lg shadow-p-color/50 rounded overflow-hidden">
-            <img src="Ali.webp" alt="Thumb" className="" />
+            <img src="Ali.jpg" alt="Thumb" className="" />
             <p className="absolute bottom-0 left-2 text-sky-500 bg-p-color rounded px-2 italic text-sm font-bold">
               on: 23-7-2022
             </p>

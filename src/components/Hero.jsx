@@ -1,13 +1,12 @@
 import { useEffect,useState } from "react";
 import TypeWritter from "./TypeWritter";
 
-// import TypewriterComponent from "typewriter-effect";
 
 export default function Hero() {
   const [imgIndex, setImgIndex] = useState(0);
   const [fade, setFade] = useState(true);
 
-  const myImgs = ["me.webp", "me2.webp", "me3.webp"];
+  const myImgs = ["me.jpg", "me2.jpg"];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -29,8 +28,9 @@ export default function Hero() {
           src={myImgs[imgIndex]}
           width={280}
           height={280}
-          // loading="lazy"
-          alt="Ali AbdElbagi avatar"
+          alt="Ali AbdElbagi img"
+          loading="eager"
+          fetchPriority="high"
           className={`shadow-xl w-60 md:w-70 md:h-70 lg:w-100 lg:h-100 rounded-full lg:mx-auto my-auto max-md:mx-auto 
             transition-opacity duration-700 ease-in-out 
             ${fade ? "opacity-100" : "opacity-0"}`}
@@ -44,13 +44,6 @@ export default function Hero() {
 
           <h3 className="text-p-color text-fluid font-extrabold my-5">
             <TypeWritter texts={"I'm Ali Abd-Elbagi"} typingSpeed={100} />
-            {/* <TypewriterComponent
-              options={{
-                strings: ["I'm Ali AbdElbagi", "I'm a Frontend Developer"],
-                autoStart: true,
-                loop: true,
-              }}
-            /> */}
           </h3>
 
           <p className="text-s-color font-semibold text-lg text-balance sm:text-xl sm:w-1/2 md:w-fit lg:w-[40ch] max-md:mx-auto">
