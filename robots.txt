@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ali007.github.io/Ali-AbdElbagi/sitemap.xml
