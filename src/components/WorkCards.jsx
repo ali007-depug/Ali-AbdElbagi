@@ -45,7 +45,7 @@ function Card({ title, details, thumb, href, repo, builtWith, customStyle }) {
   return (
     // wrapper
     <article
-      className={`work bg-white shadow-2xl shadow-p-color rounded-md overflow-hidden ${customStyle} `}
+      className={`work bg-white shadow-2xl shadow-sky-300 rounded-md overflow-hidden ${customStyle} `}
     >
       {/* anchor tag */}
       <div className="group relative">

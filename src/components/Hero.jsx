@@ -1,10 +1,6 @@
-import { useEffect, useState } from "react";
 import TypeWritter from "./TypeWritter";
 
 export default function Hero() {
-  const [imgIndex, setImgIndex] = useState(0);
-  const [fade, setFade] = useState(true);
-
   return (
     <section className="p-4 text-center font-extrabold">
       <div className="relative z-10 p-6 rounded-xl md:flex md:justify-between">
@@ -32,8 +28,11 @@ export default function Hero() {
           </h3>
 
           <p className="text-s-color font-semibold text-lg text-blance sm:text-xl sm:w-1/2 md:w-fit lg:w-[40ch] max-md:mx-auto">
-            I'm Ali, a <span className="font-bold text-p-color">Front-End Developer & Computer Engineer.</span> I like turning ideas into functional, elegant web
-            interfaces.
+            I&apos;m Ali, a{" "}
+            <span className="font-bold text-p-color">
+              Front-End Developer & Computer Engineer.{" "}
+            </span>
+            I like turning ideas into functional, elegant web interfaces.
           </p>
 
           <a

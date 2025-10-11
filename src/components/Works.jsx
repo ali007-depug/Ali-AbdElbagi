@@ -22,7 +22,7 @@ const {allProjects} = useProjects();
       </div>
       {/* view all projcets button */}
       <Link to={"/works"} className="">
-        <button className="block mx-auto mt-10 md:absolute md:right-10 md:bottom-5 p-5 bg-p-color text-white font-bold rounded cursor-pointer hover:bg-s-color hover:text-bg-color">
+        <button className="block mx-auto mt-10 md:absolute md:right-10 md:bottom-5 p-5 bg-p-color text-white font-bold rounded cursor-pointer hover:bg-p-color/95 hover:text-bg-color transition-all ease-in-out duration-300">
           Explore My All <span className="text-sky-300 underline">{allProjects}</span> Works ➡️
         </button>
       </Link>
