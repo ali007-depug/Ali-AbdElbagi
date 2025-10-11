@@ -63,21 +63,21 @@ export default function Header() {
       {/* === End overlay === */}
 
       {/* header  */}
-      <header className="flex items-center justify-between py-4 px-dyp z-30 sticky">
+      <header className="flex items-center justify-between py-4 px-5 md:px-10 z-30 sticky">
         {/* avatar + info  */}
-        <div className="header__avatarWithInfo w-1/3">
+        <div className="header__avatarWithInfo md:w-1/3">
           {/* avatar */}
-          <Link to={'/'}>
+          <Link to={'/'} className="max-sm:flex max-sm:gap-2 max-sm:items-center">
           <img
-            className="max-sm:hidden w-[50px] rounded-full"
-            src="me.jpg"
-            alt="Ali AbdElbagi picture"
+            className="max-smhidden size-10 object-cover rounded-full"
+            src="avatar.webp"
+            alt="avatar image"
             width={50}
             height={50}
             />
           {/* info */}
           <div className="header__info mt-2 text-p-color">
-            <h2 className={`text-lg font-bold sm:text-xl`}>Ali AbdElbagi</h2>
+            <h2 className={`text-base font-bold sm:text-lg`}>Ali AbdElbagi</h2>
             <p className="text-xs font-semiboldbold">Front End Developer</p>
           </div>
             </Link>
