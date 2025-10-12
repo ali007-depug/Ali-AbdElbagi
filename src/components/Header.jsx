@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { t, i18n } = useTranslation();
+  const location = useLocation();
 
   const navLinks = [
     { id: 0, link: "home" },
@@ -10,8 +13,6 @@ export default function Header() {
     { id: 2, link: "works" },
     { id: 3, link: "skills" },
   ];
-
-  const location = useLocation();
 
   function toggleMenu() {
     setIsMenuOpen(!isMenuOpen);
@@ -29,7 +30,7 @@ export default function Header() {
               : ""
           }`}
         >
-          {link.link}
+          {t(`header.menu.${link.link}`)}
         </Link>
       </li>
     );
@@ -45,7 +46,7 @@ export default function Header() {
               : ""
           }`}
         >
-          {link.link}
+          {t(`header.menu.${link.link}`)}
         </Link>
       </li>
     );
@@ -67,20 +68,27 @@ export default function Header() {
         {/* avatar + info  */}
         <div className="header__avatarWithInfo md:w-1/3">
           {/* avatar */}
-          <Link to={'/'} className="max-sm:flex max-sm:gap-2 max-sm:items-center">
-          <img
-            className="max-smhidden size-10 object-cover rounded-full"
-            src="avatar.webp"
-            alt="avatar image"
-            width={50}
-            height={50}
+          <Link
+            to={"/"}
+            className="max-sm:flex max-sm:gap-2 max-sm:items-center"
+          >
+            <img
+              className="max-smhidden size-10 object-cover rounded-full"
+              src="avatar.webp"
+              alt={t(`header.avatarAlt`)}
+              width={50}
+              height={50}
             />
-          {/* info */}
-          <div className="header__info mt-2 text-p-color">
-            <h2 className={`text-base font-bold sm:text-lg`}>Ali AbdElbagi</h2>
-            <p className="text-xs font-semiboldbold">Front End Developer</p>
-          </div>
-            </Link>
+            {/* info */}
+            <div className="header__info mt-2 text-p-color">
+              <h2 className={`text-base font-bold sm:text-lg`}>
+                {t(`header.name`)}
+              </h2>
+              <p className="text-xs font-semiboldbold">
+                {t(`header.jobTitle`)}
+              </p>
+            </div>
+          </Link>
         </div>
         {/* === End avatar + info === */}
 
@@ -92,7 +100,11 @@ export default function Header() {
             className="sm:hidden p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-p-color cursor-pointer"
             aria-expanded={isMenuOpen}
             aria-controls="mobileMenu"
-            aria-label={isMenuOpen ? "close menu" : "open menu"}
+            aria-label={
+              isMenuOpen
+                ? t("header.aria.closeMenu")
+                : t("header.aria.openMenu")
+            }
           >
             {/* menu icon */}
             <img
@@ -120,6 +132,10 @@ export default function Header() {
             {Desktoplinks}
           </ul>
           {/* === End desktop nav === */}
+          <div className="flex gap-2">
+            <button onClick={() => i18n.changeLanguage("en")}>EN</button>
+            <button onClick={() => i18n.changeLanguage("ar")}>AR</button>
+          </div>
         </nav>
         {/* === End nav === */}
       </header>

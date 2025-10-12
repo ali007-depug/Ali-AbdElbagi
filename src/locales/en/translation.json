@@ -1,0 +1,17 @@
+{
+  "header": {
+    "name": "Ali AbdElbagi",
+    "jobTitle": "Front End Developer",
+    "menu": {
+      "home": "Home",
+      "about": "About",
+      "works": "Works",
+      "skills": "Skills"
+    },
+    "aria": {
+      "openMenu": "open menu",
+      "closeMenu": "close menu"
+    },
+    "avatarAlt": "avatar image"
+  }
+}
