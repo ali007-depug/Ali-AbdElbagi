@@ -123,5 +123,5 @@ Card.propTypes = {
   repo: propTypes.string.isRequired,
   builtWith: propTypes.object.isRequired,
   customStyle: propTypes.string.isRequired,
-  t: propTypes.func.isRequired, // ✅ Add this
+  // t: propTypes.func.isRequired, // ✅ Add this
 };
