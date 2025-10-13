@@ -1,8 +1,8 @@
 import { Suspense,lazy, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
-// const MyWebSite = lazy(()=> import("./layout/MyWebSite"))
-import MyWebSite from "./layout/MyWebSite";
+const MyWebSite = lazy(()=> import("./layout/MyWebSite"))
+// import MyWebSite from "./layout/MyWebSite";
 // import Home from "./pages/Home";
 const Home = lazy(()=> import("./pages/Home"));
 const MyWorks = lazy(()=> import("./pages/MyWorks"));
