@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function TypeWritter({ texts, typingSpeed = 150, infinite }) {
+export default function TypeWritter({ key, texts, typingSpeed = 150, infinite }) {
   const [currentText, setCurrentText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -19,7 +19,7 @@ export default function TypeWritter({ texts, typingSpeed = 150, infinite }) {
         setCurrentIndex(0);
       }, 1000);
     }
-  }, [currentIndex, texts, typingSpeed, infinite]);
+  }, [currentIndex, texts, typingSpeed, infinite,key]);
 
   return (
     <span>

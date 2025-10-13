@@ -1,45 +1,64 @@
 import { useState } from "react";
-export default function Sidepanel(){
+import { useTranslation } from "react-i18next";
+
+export default function Sidepanel() {
+  const { t, i18n } = useTranslation();
   const [showSidePanel, setShowSidePanel] = useState(false);
 
-    // to show left sidepanel
-    function showLeftInfo() {
-        setShowSidePanel(!showSidePanel);
-      }
-    
-    return(
+  const isArabic = i18n.language === "ar";
+
+  function togglePanel() {
+    setShowSidePanel(!showSidePanel);
+  }
+
+  return (
+    <div
+      className={`fixed top-20 w-[350px] rounded bg-s-color px-10 transition-all duration-300 ease-in-out z-50 ${
+        // handle direction based on language
+        isArabic
+          ? showSidePanel
+            ? "right-[-10px]"
+            : "right-[-345px]"
+          : showSidePanel
+          ? "left-[-10px]"
+          : "left-[-345px]"
+      }`}
+      dir={isArabic ? "rtl" : "ltr"}
+    >
+      <h3 className="text-2xl text-bg-color font-bold my-3">
+        {t("aboutPage.sidepanel.greeting")}{" "}
+        <span className="text-white font-extrabold">{t("aboutPage.sidepanel.name")}</span>{" "}
+        🙋‍♂️
+      </h3>
+
+      <h4 className="text-white font-bold">{t("aboutPage.sidepanel.iamA")}</h4>
+
+      <ul className="space-y-1 text-white rounded py-4 w-fit [&_li]:font-bold">
+        <li>{t("aboutPage.sidepanel.roles.webDev")}</li>
+        <li>{t("aboutPage.sidepanel.roles.engineer")}</li>
+        <li>{t("aboutPage.sidepanel.roles.writer")}</li>
+        <li>{t("aboutPage.sidepanel.roles.reader")}</li>
+      </ul>
+
+      {/* arrow toggle button */}
+      <div
+        className={`bg-bg-color shadow-md rounded-full absolute ${
+          isArabic ? "left-[-35px]" : "right-[-35px]"
+        } top-[calc(190px/2)] w-[29px] h-[30px] p-5 cursor-pointer`}
+        onClick={togglePanel}
+      >
         <div
-          className={`fixed top-20 w-[350px] rounded  bg-s-color px-20 transition-all duration-300 ease-in-out z-99 ${
-            !showSidePanel ? "left-[-345px]" : "left-[-10px]"
+          className={`size-5 relative top-[-10px] border-[3px] border-t-p-color border-r-p-color border-l-0 border-b-0 transition-all duration-300 ease-in-out ${
+            isArabic
+              ? !showSidePanel
+                ? "rotate-[220deg] right-[-15px]"
+                : "rotate-[40deg] right-[-7px]"
+              : !showSidePanel
+              ? "rotate-[40deg] left-[-15px]"
+              : "rotate-[220deg] left-[-7px]"
           }`}
-        >
-          <h3 className="text-2xl text-bg-color font-bold my-3 ">
-            Hello i'am <span className="text-white  font-extrabold">Ali</span>{" "}
-            🙋‍♂️
-          </h3>
-          <h4 className="text-white font-bold">I'am a :</h4>
-          <ul className="space-y-1 text-white  rounded py-4 w-fit [&_li]:font-bold">
-            <li>Web Developer 🖱️</li>
-            <li>Computer Enginner 🖥️</li>
-            <li>Writer ✍️</li>
-            <li>Reader 📚</li>
-          </ul>
-          {/* right arrow */}
-          {/* when user open it .. it should change it's direction to be the oppesite */}
-          <div
-            className={`bg-bg-color shadow-md rounded-full absolute right-[-35px] top-[calc(190px/2)] w-[29px] h-[30px] p-5 cursor-pointer`}
-            onClick={showLeftInfo}
-          >
-            <div
-              className={`size-5 relative top-[-10px] 
-  border-[3px] border-t-p-color border-r-p-color border-l-0 border-b-0 
-  rounded-tl-none transition-all duration-300 ease-in-out ${
-    !showSidePanel
-      ? "rotate-[40deg] left-[-15px]"
-      : "rotate-[220deg] left-[-7px]"
-  }`}
-            ></div>
-          </div>
-        </div>
-    )
+        ></div>
+      </div>
+    </div>
+  );
 }

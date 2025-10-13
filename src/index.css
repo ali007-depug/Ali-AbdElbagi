@@ -2,6 +2,10 @@
 
 @theme {
   --breakpoint-xs: 26rem;
+
+  --font-en : 'Merriweather',san-serif;
+  --font-ar : 'Cairo',san-serif;
+  
   --color-p-color: hsl(211, 37%, 21%);
   --color-s-color: hsl(206, 27%, 45%);
   --color-n-color: hsl(197, 27%, 67%);

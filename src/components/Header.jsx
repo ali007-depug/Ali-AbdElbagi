@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,6 +17,17 @@ export default function Header() {
   function toggleMenu() {
     setIsMenuOpen(!isMenuOpen);
   }
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+    localStorage.setItem("i18nextLng", lng);
+    document.documentElement.lang = lng;
+    document.documentElement.dir = i18n.dir(lng); // set RTL/LTR
+
+    document.body.classList.remove("font-en", "font-ar"); // remove fonts first
+    // added based on language
+    document.body.classList.add(lng === "en" ? "font-en" : "font-ar");
+  };
 
   const Mobilelinks = navLinks.map((link) => {
     return (
@@ -70,10 +81,10 @@ export default function Header() {
           {/* avatar */}
           <Link
             to={"/"}
-            className="max-sm:flex max-sm:gap-2 max-sm:items-center"
+            className="flex items-center gap-3 "
           >
             <img
-              className="max-smhidden size-10 object-cover rounded-full"
+              className="size-10 object-cover rounded-full"
               src="avatar.webp"
               alt={t(`header.avatarAlt`)}
               width={50}
@@ -124,18 +135,54 @@ export default function Header() {
             }
           >
             {Mobilelinks}
+            <div className="flex gap-2 [&_button]:text-sm  [&_button]:px-2 [&_button]:py-1  [&_button]:rounded-md [&_button]:font-semibold [&_button]:hover:bg-s-color [&_button]:focus:outline-none [&_button]:focus:ring-2 [&_button]:focus:ring-offset-2 [&_button]:focus:ring-white [&_button]:cursor-pointer transition-all duration-300 ease-in-out">
+              <button
+                className={`${
+                  i18n.language === "en"
+                    ? "bg-p-color text-white"
+                    : "bg-bg-color text-black"
+                }`}
+                onClick={() => changeLanguage("en")}
+              >
+                EN
+              </button>
+              <button
+                className={`${
+                  i18n.language === "ar"
+                    ? "bg-p-color text-white"
+                    : "bg-bg-color text-black"
+                }`}
+                onClick={() => changeLanguage("ar")}
+              >
+                AR
+              </button>
+            </div>
           </ul>
           {/* === End mobile nav === */}
 
           {/* desktop nav */}
-          <ul className="hidden sm:flex sm:flex-wrap sm:justify-center space-x-8  min-h-[90px] [&_li]:w-fit  [&_a]:px-4 [&_a]:py-2  [&_a]:inline-block  [&_a]:capitalize [&_a]:font-semibold [&_a]:text-p-color [&_a]:hover:border-b-[3px] [&_a]:hover:border-s-color [&_a]:focus:outline-none [&_a]:focus:ring-2 [&_a]:focus:ring-offset-2 [&_a]:focus:ring-white">
+          <ul className="hidden sm:flex sm:flex-wrap sm:justify-center space-x-2  [&_li]:w-fit  [&_a]:px-4 [&_a]:py-2  [&_a]:inline-block  [&_a]:capitalize [&_a]:font-semibold [&_a]:text-p-color [&_a]:text-base  [&_a]:hover:border-b-[3px] [&_a]:hover:border-s-color [&_a]:focus:outline-none [&_a]:focus:ring-2 [&_a]:focus:ring-offset-2 [&_a]:focus:ring-white">
             {Desktoplinks}
+            <div className="flex gap-2  [&_button]:text-sm [&_button]:px-2 [&_button]:py-1  [&_button]:text-p-color [&_button]:rounded-md [&_button]:font-semibold [&_button]:hover:bg-sky-200 [&_button]:focus:outline-none [&_button]:focus:ring-2 [&_button]:focus:ring-offset-2 [&_button]:focus:ring-white [&_button]:cursor-pointer transition-all duration-300 ease-in-out">
+              <button
+                className={`${
+                  i18n.language === "en" ? "bg-sky-200" : "bg-bg-color"
+                }`}
+                onClick={() => changeLanguage("en")}
+              >
+                EN
+              </button>
+              <button
+                className={`${
+                  i18n.language === "ar" ? "bg-sky-200" : "bg-bg-color"
+                }`}
+                onClick={() => changeLanguage("ar")}
+              >
+                AR
+              </button>
+            </div>
           </ul>
           {/* === End desktop nav === */}
-          <div className="flex gap-2">
-            <button onClick={() => i18n.changeLanguage("en")}>EN</button>
-            <button onClick={() => i18n.changeLanguage("ar")}>AR</button>
-          </div>
         </nav>
         {/* === End nav === */}
       </header>
