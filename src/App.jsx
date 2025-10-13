@@ -14,6 +14,7 @@ import Loading from "./components/Loading";
 function App() {
 
   useEffect(()=>{
+    console.log(document.documentElement.lang)
   // get the data on ls
   const lang = localStorage.getItem("i18nextLng") || "en";
   lang === "en" ? document.documentElement.dir = "ltr" : document.documentElement.dir = "rtl";
