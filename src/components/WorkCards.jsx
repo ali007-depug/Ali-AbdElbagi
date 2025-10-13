@@ -1,4 +1,3 @@
-import propTypes from "prop-types";
 import { useProjects } from "../contexts/ProjectsContext";
 import { motion } from "motion/react";
 import { Fragment } from "react";
@@ -76,6 +75,7 @@ function Card({ title, details, thumb, href, repo, builtWith, customStyle, t }) 
                   title={tech} // ✅ Tech names remain in English (HTML, Sass, etc.)
                   className="@md:size-8 size-6"
                   loading="lazy"
+                  fetchPriority="low"
                 />
               ))}
             </div>
@@ -115,13 +115,3 @@ function Card({ title, details, thumb, href, repo, builtWith, customStyle, t }) 
   );
 }
 
-Card.propTypes = {
-  title: propTypes.string.isRequired,
-  details: propTypes.string.isRequired,
-  thumb: propTypes.string.isRequired,
-  href: propTypes.string.isRequired,
-  repo: propTypes.string.isRequired,
-  builtWith: propTypes.object.isRequired,
-  customStyle: propTypes.string.isRequired,
-  // t: propTypes.func.isRequired, // ✅ Add this
-};
