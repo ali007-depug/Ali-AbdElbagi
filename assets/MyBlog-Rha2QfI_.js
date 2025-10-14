@@ -1,0 +1,1 @@
+import{j as t}from"./index-DV8xsENA.js";function o(){return t.jsx("section",{children:t.jsx("h1",{className:"text-gray-800 font-bold text-3xl text-center",children:"Coming soon..."})})}export{o as default};
