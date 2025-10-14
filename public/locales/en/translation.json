@@ -6,7 +6,8 @@
       "home": "Home",
       "about": "About",
       "works": "Works",
-      "skills": "Skills"
+      "skills": "Skills",
+      "blog" : "Blog"
     },
     "aria": {
       "openMenu": "open menu",

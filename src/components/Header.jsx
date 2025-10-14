@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
@@ -12,6 +12,7 @@ export default function Header() {
     { id: 1, link: "about" },
     { id: 2, link: "works" },
     { id: 3, link: "skills" },
+    { id: 4, link: "blog" },
   ];
 
   function toggleMenu() {

@@ -7,6 +7,7 @@ const Home = lazy(() => import("./pages/Home"));
 const MyWorks = lazy(() => import("./pages/MyWorks"));
 const AboutMe = lazy(() => import("./pages/AboutMe"));
 const MySkills = lazy(() => import("./pages/MySkills"));
+const MyBlog = lazy(() => import("./pages/MyBlog"));
 
 import Loading from "./components/Loading";
 
@@ -35,6 +36,7 @@ function App() {
           <Route path="works" element={<MyWorks />} />
           <Route path="about" element={<AboutMe />} />
           <Route path="skills" element={<MySkills />} />
+          <Route path="blog" element={<MyBlog />} />
         </Route>
       </Routes>
     </Suspense>
