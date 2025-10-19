@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
-
-export default function TypeWritter({ key, texts, typingSpeed = 150, infinite }) {
+interface TypeWritterProps {
+  key:string;
+  texts:string;
+  typingSpeed:number;
+  infinite?:boolean;
+}
+export default function TypeWritter({ key, texts, typingSpeed = 150, infinite }:TypeWritterProps) {
   const [currentText, setCurrentText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
 

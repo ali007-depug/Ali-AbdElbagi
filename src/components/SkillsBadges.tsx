@@ -1,11 +1,16 @@
 import { Fragment } from "react";
 import { motion } from "framer-motion";
 
+interface SkillsBadgesProps {
+  cardWidth?: string;
+  isLearntSkills?: boolean;
+  bg?: string;
+}
 export default function SkillsBadges({
   cardWidth = "350px",
   isLearntSkills = true,
   bg = "bg-sky-900",
-}) {
+}:SkillsBadgesProps) {
   const skills = {
     html: "html.webp",
     css: "css3.webp",

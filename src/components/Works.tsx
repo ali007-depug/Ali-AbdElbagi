@@ -3,8 +3,13 @@ import { Link} from "react-router-dom";
 // import { ProjcetsProvider } from "../contexts/ProjectsContext";
 import { useProjects , ProjcetsProvider } from "../contexts/ProjectsContext"
 import { useTranslation } from "react-i18next";
+
+// type
+import { Project } from "../components/WorkCards";
+import { ProjectsContextType } from "../components/WorkCards";
+
 export default function Work() {
-const {allProjects} = useProjects();
+const {allProjects} = useProjects() as ProjectsContextType;
 const {t,i18n} = useTranslation();
 
   return (

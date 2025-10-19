@@ -173,10 +173,10 @@ const worksItems = [
 ];
 
 // create Context
-const projcetsContext = createContext();
+const projcetsContext = createContext({});
 
 //   create a provider components
-export function ProjcetsProvider({ children }) {
+export function ProjcetsProvider({ children }: { children: React.ReactNode }) {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const allProjects = worksItems.length
 

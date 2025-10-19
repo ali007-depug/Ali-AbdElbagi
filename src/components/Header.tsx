@@ -19,7 +19,7 @@ export default function Header() {
     setIsMenuOpen(!isMenuOpen);
   }
 
-  const changeLanguage = (lng) => {
+  const changeLanguage = (lng:string) => {
     i18n.changeLanguage(lng);
     localStorage.setItem("i18nextLng", lng);
     document.documentElement.lang = lng;

@@ -6,7 +6,7 @@ import App from './App.jsx'
 import './i18n.js';
 
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById('root')!).render(
 <HashRouter>
   <StrictMode>
     <App />

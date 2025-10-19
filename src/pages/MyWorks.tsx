@@ -4,6 +4,8 @@ import Contact from "../components/Contact";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
+// types
+import { ProjectsContextType } from "../components/WorkCards";
 export default function MyWorks() {
   const { t } = useTranslation();
 
@@ -36,7 +38,7 @@ export default function MyWorks() {
 }
 
 function TapList() {
-  const { selectedCategory, setSelectedCategory } = useProjects();
+  const { selectedCategory, setSelectedCategory } = useProjects() as ProjectsContextType;
   const { t } = useTranslation();
 
   // Translated list labels
@@ -60,7 +62,7 @@ function TapList() {
           className={`${
             selectedCategory === item.key ? "bg-s-color !text-bg-color " : ""
           } capitalize cursor-pointer sm:not-first:ml-2 max-sm:not-last:mb-2 px-2 py-3 rounded text-p-color bg-n-color/30 max-sm:min-w-20 sm:min-w-35 font-extrabold`}
-          onClick={() => setSelectedCategory(item.key)}
+          onClick={() => setSelectedCategory?.(item.key)}
         >
           {item.label}
         </motion.button>

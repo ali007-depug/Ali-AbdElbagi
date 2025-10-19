@@ -3,11 +3,32 @@ import { motion } from "motion/react";
 import { Fragment } from "react";
 import { useTranslation } from "react-i18next"; // ✅ Add this
 
-export default function WorkCards({ customStyle, numberOfCards }) {
-  const { filterdProjects } = useProjects();
+interface WorkCardsProps{
+customStyle?:string;
+numberOfCards:number;
+}
+
+export interface Project{
+  id:string;
+  title:string;
+  details:string;
+  img:string;
+  href:string;
+  repo:string;
+  builtWith : {[key:string]:string}
+}
+export interface ProjectsContextType {
+  filterdProjects: Project[];
+  allProjects?: number;
+  selectedCategory?: string;
+  setSelectedCategory?: (category: string) => void ;
+}
+export default function WorkCards({ customStyle, numberOfCards }:WorkCardsProps) {
+  const { filterdProjects } = useProjects() as ProjectsContextType;
   const { t } = useTranslation(); // ✅ Add this
 
-  const mapinnCards = filterdProjects.map((work, index) => {
+  let filterdProjectsArray:Project[] = filterdProjects
+  const mapinnCards = filterdProjectsArray.map((work, index) => {
     if (index <= numberOfCards) {
       return (
         <Fragment key={work.id}>
@@ -39,8 +60,18 @@ export default function WorkCards({ customStyle, numberOfCards }) {
   return mapinnCards;
 }
 
+interface CardProps {
+  title:string;
+  details:string;
+  thumb:string;
+  href:string;
+  repo:string;
+  customStyle?:string;
+  builtWith : {[key:string]:string}
+  t : (key:string)=>string;
+}
 // Card component
-function Card({ title, details, thumb, href, repo, builtWith, customStyle, t }) {
+function Card({ title, details, thumb, href, repo, builtWith, customStyle, t }:CardProps) {
   return (
     <article className={`work bg-white shadow-2xl shadow-sky-300 rounded-md overflow-hidden ${customStyle}`}>
       <div className="group relative">
