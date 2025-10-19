@@ -5,7 +5,15 @@ import { useTranslation } from "react-i18next";
 
 export default function AboutMe() {
   const { t } = useTranslation();
+  interface Paragraph {
+    before: string;
+    link?: { href: string; text: string };
+    after: string;
+  }
 
+  const paragraphs = t("aboutPage.about.frontend.paragraphs", {
+    returnObjects: true,
+  }) as Paragraph[];
   return (
     <>
       <section className="px-dyp py-10 relative bg-p-color">
@@ -19,7 +27,11 @@ export default function AboutMe() {
         <div className="w-full flex gap-4">
           {/* image */}
           <div className="hidden sm:block sm:w-1/2 lg:w-1/3 order-1 sticky top-10 h-fit shadow-lg shadow-p-color/50 rounded overflow-hidden">
-            <img src="Ali.jpg" alt={t("aboutPage.about.imageAlt")} className="" />
+            <img
+              src="Ali.jpg"
+              alt={t("aboutPage.about.imageAlt")}
+              className=""
+            />
             <p className="absolute bottom-0 left-2 text-sky-500 bg-p-color rounded px-2 italic text-sm font-bold">
               {t("aboutPage.about.imageDate")}
             </p>
@@ -43,33 +55,31 @@ export default function AboutMe() {
             </div>
 
             {/* University */}
-            <div  className="[&_h4]:font-bold [&_h4]:text-2xl">
+            <div className="[&_h4]:font-bold [&_h4]:text-2xl">
               <h4>{t("aboutPage.about.university.title")}</h4>
               <p>{t("aboutPage.about.university.text")}</p>
             </div>
 
             {/* Falling in love */}
-            <div  className="[&_h4]:font-bold [&_h4]:text-2xl">
+            <div className="[&_h4]:font-bold [&_h4]:text-2xl">
               <h4>{t("aboutPage.about.love.title")}</h4>
               <p>{t("aboutPage.about.love.text")}</p>
             </div>
 
             {/* Frontend */}
-            <div  className="[&_h4]:font-bold [&_h4]:text-2xl">
+            <div className="[&_h4]:font-bold [&_h4]:text-2xl">
               <h4>{t("aboutPage.about.frontend.title")}</h4>
-              {t("aboutPage.about.frontend.paragraphs", { returnObjects: true }).map(
-                (para, i) => (
-                  <p key={i}>
-                    {para.before}{" "}
-                    {para.link && (
-                      <a href={para.link.href} target="_blank">
-                        {para.link.text}
-                      </a>
-                    )}{" "}
-                    {para.after}
-                  </p>
-                )
-              )}
+              {paragraphs.map((para, i) => (
+                <p key={i}>
+                  {para.before}{" "}
+                  {para.link && (
+                    <a href={para.link.href} target="_blank">
+                      {para.link.text}
+                    </a>
+                  )}{" "}
+                  {para.after}
+                </p>
+              ))}
             </div>
           </motion.div>
         </div>
