@@ -9,7 +9,7 @@ A modern, responsive personal portfolio and blog website built with React, TypeS
 
 ## 🚀 Live Demo
 
-[Visit Website](https://ali007-depug.github.io/Ali-AbdElbagi) • [Portfolio](https://ali007-depug.github.io/Ali-AbdElbagi) • [Blog](https://ali007-depug.github.io/Ali-AbdElbagi/blog)
+[Visit Website](https://ali007-depug.github.io/Ali-AbdElbagi) • [Portfolio](https://ali007-depug.github.io/Ali-AbdElbagi) • [Blog](https://ali007-depug.github.io/Ali-AbdElbagi/#blog)
 
 ## ✨ Features
 
