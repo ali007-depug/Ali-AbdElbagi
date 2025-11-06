@@ -37,7 +37,7 @@ export default function BlogPost() {
         {content}
       </p>
       {/* img */}
-      <div className="overflow-hidden rounded-md shadow-md shadow-sky-800 w-120 h-fit mx-auto">
+      <div className="overflow-hidden rounded-md shadow-md shadow-sky-800 w-80 max-sm:hover:scale-110 md:w-120 h-fit mx-auto transition-all duration-300 ease-in-out">
         {media && (
           <img
             src={media?.fields?.file?.url}
