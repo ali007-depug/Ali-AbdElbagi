@@ -1,8 +1,8 @@
 # Ali AbdElbagi - Personal Portfolio & Blog
 
-![React](https://img.shields.io/badge/React-18.2.0-blue)
+![React](https://img.shields.io/badge/React-19.0.0-blue)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)
-![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.3-purple)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4.1-purple)
 ![Contentful](https://img.shields.io/badge/Contentful-CMS-green)
 
 A modern, responsive personal portfolio and blog website built with React, TypeScript, and Tailwind CSS, featuring content management through Contentful.
