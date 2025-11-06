@@ -17,8 +17,10 @@
   --spacing-dyp: clamp(0.813rem, -0.491rem + 5.561vi, 4.375rem);
 
   --animate-grade: grade 8s ease infinite;
-  --animate-blink: blink 1s steps(1) infinite @keyframes blink {
-    0%,
+  --animate-blink: blink steps(1) infinite;
+  
+   @keyframes blink {
+    
     100% {
       /* border-color: transparent; */
       opacity: 1;
@@ -30,7 +32,9 @@
   }
 
   @keyframes grade {
-    0,
+    0% {
+      background-position: 0% 50%;
+    }
     100% {
       background-position: 0% 50%;
     }

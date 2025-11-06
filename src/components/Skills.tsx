@@ -12,7 +12,7 @@ export default function Skills() {
       <SkillsBadges />
 
       <Link to={"/skills"} className="">
-        <button className="block mx-auto mt-10 md:absolute md:end-10 [direction:rtl]:md:start-10 md:bottom-5 p-5 bg-s-color text-white font-bold rounded cursor-pointer hover:bg-s-color/80 hover:text-bg-color transition-all duration-300 ease-in-out">
+        <button className="block mx-auto mt-10 md:absolute md:end-10 rtl:md:start-10 md:bottom-5 p-5 bg-s-color text-white font-bold rounded cursor-pointer hover:bg-s-color/80 hover:text-bg-color transition-all duration-300 ease-in-out">
           {t("mySkills.btnNextLearning")} {i18n.language === "en" ? "➡️" : "⬅️"}
         </button>
       </Link>

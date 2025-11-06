@@ -11,7 +11,7 @@ const MyBlog = lazy(() => import("./pages/MyBlog"));
 
 import Loading from "./components/Loading";
 import BlogPost from "./pages/blogPost";
-import Tags from "./pages/Tags";
+import PostTags from "./pages/PostTags";
 
 function App() {
   const { i18n } = useTranslation();
@@ -41,7 +41,7 @@ function App() {
           <Route path="skills" element={<MySkills />} />
           <Route path="blog" element={<MyBlog />} />
           <Route path="blog/:uniqueUrl/" element={<BlogPost/>} />
-          <Route path="blog/tags/:tag/" element={<Tags/>} />
+          <Route path="blog/tags/:tag/" element={<PostTags/>} />
         </Route>
       </Routes>
     </Suspense>

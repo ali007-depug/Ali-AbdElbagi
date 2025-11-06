@@ -6,7 +6,7 @@ export default function useBlogs() {
     queryFn: async () => {
       const response = await client.getEntries({
         content_type: "blog",
-        order: "-fields.date",
+        order: ["-fields.date"],
       });
       return response.items
     },
