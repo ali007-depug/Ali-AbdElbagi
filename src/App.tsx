@@ -10,6 +10,7 @@ const MySkills = lazy(() => import("./pages/MySkills"));
 const MyBlog = lazy(() => import("./pages/MyBlog"));
 
 import Loading from "./components/Loading";
+import BlogPost from "./pages/blogPost";
 
 function App() {
   const { i18n } = useTranslation();
@@ -17,14 +18,15 @@ function App() {
   useEffect(() => {
     // set en as default in localStorage
     if (!localStorage.getItem("i18nextLng")) {
-      localStorage.setItem("i18nextLng", "en");
+      localStorage.setItem("i18nextLng", "ar");
     }
     // Get current language (from i18n or localStorage)
-    const lang = i18n.language || localStorage.getItem("i18nextLng") || "en";
+    const lang = i18n.language || localStorage.getItem("i18nextLng") || "ar";
 
     // Apply direction + lang attribute
     document.documentElement.lang = lang;
-    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+    
+    document.documentElement.dir = lang === "en" ? "ltr" : "rtl";
   }, [i18n.language]);
 
   return (
@@ -37,6 +39,7 @@ function App() {
           <Route path="about" element={<AboutMe />} />
           <Route path="skills" element={<MySkills />} />
           <Route path="blog" element={<MyBlog />} />
+          <Route path="blog/:uniqueUrl/" element={<BlogPost/>} />
         </Route>
       </Routes>
     </Suspense>

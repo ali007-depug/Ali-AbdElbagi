@@ -1,12 +1,13 @@
 import { Outlet } from "react-router-dom";
 import { ProjcetsProvider } from "../contexts/ProjectsContext";
 import Header from "../components/Header";
-
-
+import i18n from "../i18n";
 
 export default function MyWebSite() {
+  const font = i18n.language === 'ar' ? 'font-ar' : 'font-en';
+
   return (
-    <div className="h-[100dvh]">
+    <div className={`min-h-[100dvh] ${font}`}>
       <Header />
       <main className="">
         {/* 😕 i comment the provider when devlopment for some reason but now i can't remember --- try to figure out */}
