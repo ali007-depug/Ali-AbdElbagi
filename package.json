@@ -12,6 +12,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@microsoft/clarity": "^1.0.0",
     "@tailwindcss/vite": "^4.1.4",
     "@tanstack/react-query": "^5.90.7",
     "@typescript-eslint/eslint-plugin": "^8.46.1",

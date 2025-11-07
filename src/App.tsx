@@ -1,6 +1,8 @@
 import { Suspense, lazy, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import Clarity from '@microsoft/clarity';
+
 
 const MyWebSite = lazy(() => import("./layout/MyWebSite"));
 const Home = lazy(() => import("./pages/Home"));
@@ -29,6 +31,9 @@ function App() {
     document.documentElement.lang = lang;
     
     document.documentElement.dir = lang === "en" ? "ltr" : "rtl";
+
+    Clarity.init("u29wfyoxlt");
+
   }, [i18n.language]);
 
   return (
