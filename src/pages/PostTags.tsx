@@ -29,7 +29,7 @@ export default function PostsTags() {
     return (
       <article
         key={post.sys.id} // Use Contentful system ID as unique key
-        className="flex items-center justify-center p-3 min-w-2xl odd:bg-gray-200 even:bg-bg-color"
+        className="flex items-center justify-center p-3 min-w-full md:min-w-2xl odd:bg-gray-200 even:bg-bg-color w-20  "
       >
         {/* Post container with alternating background colors */}
         <div className="flex items-center gap-5">
@@ -57,7 +57,7 @@ export default function PostsTags() {
   });
 
   return (
-    <main className="space-y-2 px-5 flex items-center flex-col">
+    <main className="space-y-2 px-5 flex items-center flex-col ">
       {/* Page title showing the tag name */}
       <h1 className="text-3xl md:text-5xl mx-auto text-center font-bold text-p-color">
         {tag}
