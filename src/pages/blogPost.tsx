@@ -1,8 +1,12 @@
 import { useNavigate, useParams } from "react-router-dom";
 import useBlogPost from "../hooks/useBlogPost";
 import Loading from "../components/Loading";
+import Error from "./Error";
+import { useTranslation } from "react-i18next";
 
 export default function BlogPost() {
+  // Translation hook for internationalization
+  const { t } = useTranslation();
   // Get the unique URL parameter from the route
   const { uniqueUrl } = useParams();
   
@@ -18,7 +22,7 @@ export default function BlogPost() {
   }
 
   // Show error message if post not found or there's an error
-  if (isError || !post) return <p>Post not found</p>;
+  if (isError || !post) return <Error msg={t('errorPage.defaultMsg')}/>;
 
   // Destructure post fields from Contentful response
   // Note: Using 'any' type here - in production, consider defining proper TypeScript interfaces

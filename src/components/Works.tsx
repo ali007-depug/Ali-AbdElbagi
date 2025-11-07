@@ -27,7 +27,7 @@ const {t,i18n} = useTranslation();
       </div>
       {/* view all projcets button */}
       <Link to={"/works"} className="">
-        <button className="block mx-auto mt-10 md:absolute md:end-20 rtl:md:start-20 md:bottom-5 p-5 bg-p-color text-white font-bold rounded cursor-pointer hover:bg-p-color/95 hover:text-bg-color transition-all ease-in-out duration-300">
+        <button className="block mx-auto mt-10 md:absolute md:end-20  [dir:rtl]:md:start-20 md:bottom-5 p-5 bg-p-color text-white font-bold rounded cursor-pointer hover:bg-p-color/95 hover:text-bg-color transition-all ease-in-out duration-300">
           {t('myWorks.btnExplore.first')}<span className="text-sky-300 underline">{allProjects}</span> {t('myWorks.btnExplore.second')} {i18n.language === "en" ? "➡️" : "⬅️"}
         </button>
       </Link>

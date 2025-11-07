@@ -12,9 +12,10 @@ const MyBlog = lazy(() => import("./pages/MyBlog"));
 import Loading from "./components/Loading";
 import BlogPost from "./pages/blogPost";
 import PostTags from "./pages/PostTags";
+import Error from "./pages/Error";
 
 function App() {
-  const { i18n } = useTranslation();
+  const { t,i18n } = useTranslation();
 
   useEffect(() => {
     // set en as default in localStorage
@@ -42,6 +43,7 @@ function App() {
           <Route path="blog" element={<MyBlog />} />
           <Route path="blog/:uniqueUrl/" element={<BlogPost/>} />
           <Route path="blog/tags/:tag/" element={<PostTags/>} />
+          <Route path="*" element={<Error msg={t('errorPage.defaultMsg')}/>}/>
         </Route>
       </Routes>
     </Suspense>

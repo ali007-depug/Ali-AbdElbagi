@@ -1,6 +1,7 @@
 import { useParams, useNavigate, Link } from "react-router-dom";
 import usePostsWithTags from "../hooks/useTags";
 import Loading from "../components/Loading";
+import Error from "./Error";
 
 export default function PostsTags() {
   // Get the tag parameter from the route URL
@@ -19,7 +20,7 @@ export default function PostsTags() {
   }
 
   // Handle case where no posts are found for the given tag
-  if (!posts?.length) return <p>No posts found for tag: {tag}</p>;
+  if (!posts?.length) return <Error msg={`لا توجد مقالات لـ تصنيف الـ ${tag}`}/>
 
   // Render list of posts with the specified tag
   const tagPost = posts.map((post: any, index: number) => {
