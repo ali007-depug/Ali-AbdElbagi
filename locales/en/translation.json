@@ -149,5 +149,8 @@
       "title": "My Skills",
       "description": "I’ve worked with a variety of tools and technologies in real-world projects. Here’s a snapshot of what I use to design, build, and deploy frontend applications.",
       "nextLevelTitle": "Next-Level Tools I’m Diving Into"
+  },
+  "errorPage":{
+    "defaultMsg":"Page Not Found , Please Go To Previous Page"
   }
 }
