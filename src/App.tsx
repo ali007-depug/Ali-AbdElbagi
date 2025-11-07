@@ -19,6 +19,8 @@ import Error from "./pages/Error";
 function App() {
   const { t,i18n } = useTranslation();
 
+  const CLARITY_PROJECT_ID = import.meta.env.VITE_REACT_APP_CLARITY_ID; // or your env var
+
   useEffect(() => {
     // set en as default in localStorage
     if (!localStorage.getItem("i18nextLng")) {
@@ -32,7 +34,7 @@ function App() {
     
     document.documentElement.dir = lang === "en" ? "ltr" : "rtl";
 
-    Clarity.init("u29wfyoxlt");
+    Clarity.init(CLARITY_PROJECT_ID);
 
   }, [i18n.language]);
 
