@@ -25,24 +25,24 @@ export default function MyBlog() {
       key={post.sys.id} // Use Contentful system ID as unique key
       className="flex items-center odd:bg-gray-200 even:bg-bg-color p-3 justify-center-safe gap-10"
     >
-      <div className="flex flex-col items-center gap-4">
+      <Link
+        to={`/blog/${post.fields.uniqueUrl}`}
+        className="flex flex-col items-center gap-4"
+      >
         {/* Blog post title link */}
-        <Link
-          to={`/blog/${post.fields.uniqueUrl}`}
-          className="flex items-center gap-2"
-        >
+        <div className="flex items-center gap-2">
           {/* Post number indicator */}
           <span className="text-gray-600 text-sm">#{index + 1}</span>
           {/* Blog post title */}
           <h3 className="font-semibold text-sky-600 text-lg md:text-2xl">
             {post.fields.title}
           </h3>
-        </Link>
+        </div>
         {/* Blog post description with truncation on small screens */}
         <p className="text-gray-600 text-sm overflow-ellipsis overflow-hidden whitespace-nowrap max-w-[25ch] sm:max-w-fit">
           {post.fields.description}
         </p>
-      </div>
+      </Link>
       {/* Publication date */}
       <p className="text-gray-600 text-sm">{post.fields.date}</p>
     </div>
@@ -58,7 +58,7 @@ export default function MyBlog() {
   }, {});
 
   // Render clickable tags with counts
-  const allTags = Object.entries(tagWithCount  || {}).map(([tag, count]) => (
+  const allTags = Object.entries(tagWithCount || {}).map(([tag, count]) => (
     <div
       key={tag}
       className="flex gap-2 items-center mb-2 bg-p-color w-fit px-3 py-2 rounded-md cursor-pointer hover:bg-s-color/80 transition-all duration-300 ease-in-out"
@@ -80,7 +80,7 @@ export default function MyBlog() {
       <h1 className="text-3xl md:text-5xl mx-auto text-center font-bold text-p-color">
         المقالات
       </h1>
-      
+
       {/* Subtitle */}
       <h2 className="text-2xl mt-4 md:text-3xl font-semibold text-s-color ms-10">
         أحدث المقالات ✍️

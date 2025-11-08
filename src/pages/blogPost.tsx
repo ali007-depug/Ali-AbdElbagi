@@ -3,6 +3,7 @@ import useBlogPost from "../hooks/useBlogPost";
 import Loading from "../components/Loading";
 import Error from "./Error";
 import { useTranslation } from "react-i18next";
+import MarkdownRendering from "../components/MarkdownRendering";
 
 export default function BlogPost() {
   // Translation hook for internationalization
@@ -50,8 +51,9 @@ export default function BlogPost() {
       </p>
       
       {/* Main blog post content */}
-      <p className="max-w-2xl leading-10 mb-4 text-balance mx-auto text-base md:text-lg font-medium text-p-color">
-        {content}
+      <p className="max-w-xl bg-red200 leading-10 mb-4 text-start max-sm:px-5 text-balance mx-auto text-base md:text-lg font-medium text-p-color whitespace-pre-line">
+        {/* {content} */}
+        <MarkdownRendering content={content}/>
       </p>
       
       {/* Featured image/media section */}
