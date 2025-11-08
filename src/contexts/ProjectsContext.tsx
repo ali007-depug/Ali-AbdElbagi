@@ -170,6 +170,21 @@ const worksItems = [
       js: "js.webp",
     },
   },
+  {
+    id: 11,
+    title: "Mortgage repayment calculator",
+    details: "forntEnd mentor challegne",
+    img: "Mortgage_repayment_calculator.webp",
+    href: "https://mortgage0repayment.netlify.app/",
+    repo: "https://github.com/ali007-depug/Mortgage-Repayment-Calc",
+    category: "frontend mentor",
+    builtWith: {
+      react: "react.webp",
+      TypeScript: "typeScript.webp",
+      tailwind: "tailwindCss.webp",
+      vite: "vite.svg",
+    },
+  },
 ];
 
 // create Context
