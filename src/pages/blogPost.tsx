@@ -18,7 +18,7 @@ export default function BlogPost() {
   const { data: post, isLoading, isError } = useBlogPost(uniqueUrl as string);
 
   // Show loading spinner while data is being fetched
-  if (!isLoading) {
+  if (isLoading) {
     return (
       <AutoSkeletonLoader
       className="text-center mx-auto flex justify-center w-full md:w-[95%] max-w-lg px-4 py-8 md:px-5 md:py-9 "
