@@ -18,25 +18,10 @@ export default function BlogPost() {
   const { data: post, isLoading, isError } = useBlogPost(uniqueUrl as string);
 
   // Show loading spinner while data is being fetched
-  if (isLoading) {
+  if (!isLoading) {
     return (
       <AutoSkeletonLoader
-        style={{
-          textAlign: "center",
-          marginInline: "auto",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          width: "100%",
-          paddingInline: "16px",
-          paddingBlock: "32px",
-          "@media (min-width: 640px)": {
-            width: "95%",
-            maxWidth: "500px",
-            paddingInline: "20px",
-            paddingBlock: "36px",
-          },
-        }}
+      className="text-center mx-auto flex justify-center w-full md:w-[95%] max-w-lg px-4 py-8 md:px-5 md:py-9 "
         component={
           <main className="text-center space-y-2 max-md:px-5">
             {/* Back to all posts button */}
