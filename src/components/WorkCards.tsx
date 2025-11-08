@@ -80,7 +80,7 @@ function Card({ title, details, thumb, href, repo, builtWith, customStyle, t }:C
           <img
             src={thumb}
             alt=""
-            className="img__thumb w-[90%] mx-auto p-2.5 group-hover:w-[100%] group-hover:p-0 transition-all duration-300 ease-in-out"
+            className="img__thumb sm:w-[90%]  mx-auto p-1.5 sm:p-2.5 group-hover:w-[100%] group-hover:p-0 transition-all duration-300 ease-in-out"
           />
         </div>
         
