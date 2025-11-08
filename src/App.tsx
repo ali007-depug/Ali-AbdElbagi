@@ -4,13 +4,13 @@ import { useTranslation } from "react-i18next";
 import Clarity from '@microsoft/clarity';
 import "react-loadly/styles.css"
 
-
 const MyWebSite = lazy(() => import("./layout/MyWebSite"));
 const Home = lazy(() => import("./pages/Home"));
 const MyWorks = lazy(() => import("./pages/MyWorks"));
 const AboutMe = lazy(() => import("./pages/AboutMe"));
 const MySkills = lazy(() => import("./pages/MySkills"));
 const MyBlog = lazy(() => import("./pages/MyBlog"));
+
 const BlogPost = lazy(()=> import("./pages/blogPost"));
 const PostTags = lazy(()=>import('./pages/PostTags'));
 import Loading from "./components/Loading";

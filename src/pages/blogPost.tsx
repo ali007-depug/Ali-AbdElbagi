@@ -134,10 +134,10 @@ export default function BlogPost() {
       </p>
 
       {/* Main blog post content */}
-      <p className="max-w-xl bg-red200 leading-10 mb-4 text-start max-sm:px-5 text-balance mx-auto text-base md:text-lg font-medium text-p-color whitespace-pre-line">
+      <div className="max-w-xl bg-red200 leading-10 mb-4 text-start max-sm:px-5 text-balance mx-auto text-base md:text-lg font-medium text-p-color whitespace-pre-line">
         {/* {content} */}
         <MarkdownRendering content={content} />
-      </p>
+      </div>
 
       {/* Featured image/media section */}
       <div className="overflow-hidden rounded-md shadow-md shadow-sky-800 w-80 max-sm:hover:scale-110 md:w-120 h-fit mx-auto transition-all duration-300 ease-in-out">
