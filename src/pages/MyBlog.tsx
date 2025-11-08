@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import useBlogs from "../hooks/useBlogs";
 import Loading from "../components/Loading";
-
+import { AutoSkeletonLoader } from "react-loadly";
 export default function MyBlog() {
   // Fetch blog posts data using custom hook
   const { data: posts, isLoading, isError } = useBlogs();
@@ -11,7 +11,179 @@ export default function MyBlog() {
 
   // Show loading state while data is being fetched
   if (isLoading) {
-    return <Loading />;
+    return (
+      <AutoSkeletonLoader
+        component={
+          <section className="mb-10">
+            {/* Main title */}
+            <h1 className="text-3xl md:text-5xl mx-auto text-center font-bold text-p-color">
+              المقالات
+            </h1>
+
+            {/* Subtitle */}
+            <h2 className="text-2xl mt-4 md:text-3xl font-semibold text-s-color ms-10">
+              أحدث المقالات ✍️
+            </h2>
+
+            <div className="flex max-md:flex-col gap-5">
+              {/* Blog posts section */}
+              <div className="space-y-4 mt-4 w-full text-center bg-p-color/4 in-h-[80vh] p-8 rounded-lg md:basis-5xl max-md:order-2">
+                {/* Render all blog posts */}
+                <div className="flex items-center odd:bg-gray-200 even:bg-bg-color p-3 justify-center-safe gap-10">
+                  <Link
+                    to={`/blog/$`}
+                    className="flex flex-col items-center gap-4"
+                  >
+                    {/* Blog post title link */}
+                    <div className="flex items-center gap-2">
+                      {/* Post number indicator */}
+                      <span className="text-gray-600 text-sm">#{0 + 1}</span>
+                      {/* Blog post title */}
+                      <h3 className="font-semibold text-sky-600 text-lg md:text-2xl">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Libero consectetur excepturi, ullam sint, rerum sit
+                        quisquam laborum explicabo, beatae officia molestiae
+                        reiciendis! Iusto a quos distinctio at officiis sit
+                        pariatur.
+                      </h3>
+                    </div>
+                    {/* Blog post description with truncation on small screens */}
+                    <p className="text-gray-600 text-sm overflow-ellipsis overflow-hidden whitespace-nowrap max-w-[25ch] sm:max-w-fit">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Eius deleniti magnam quibusdam, sed architecto et iste
+                      laudantium nesciunt animi dolor atque ea pariatur quisquam
+                      natus ex vel sunt distinctio id.
+                    </p>
+                  </Link>
+                  {/* Publication date */}
+                  <p className="text-gray-600 text-sm">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Illum consequuntur dolor a voluptatem. Similique eligendi,
+                    voluptas dolor cupiditate doloremque nihil hic debitis rem
+                    repellat repudiandae in velit adipisci nobis exercitationem.
+                  </p>
+                </div>
+                <div className="flex items-center odd:bg-gray-200 even:bg-bg-color p-3 justify-center-safe gap-10">
+                  <Link
+                    to={`/blog/$`}
+                    className="flex flex-col items-center gap-4"
+                  >
+                    {/* Blog post title link */}
+                    <div className="flex items-center gap-2">
+                      {/* Post number indicator */}
+                      <span className="text-gray-600 text-sm">#{0 + 1}</span>
+                      {/* Blog post title */}
+                      <h3 className="font-semibold text-sky-600 text-lg md:text-2xl">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Libero consectetur excepturi, ullam sint, rerum sit
+                        quisquam laborum explicabo, beatae officia molestiae
+                        reiciendis! Iusto a quos distinctio at officiis sit
+                        pariatur.
+                      </h3>
+                    </div>
+                    {/* Blog post description with truncation on small screens */}
+                    <p className="text-gray-600 text-sm overflow-ellipsis overflow-hidden whitespace-nowrap max-w-[25ch] sm:max-w-fit">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Eius deleniti magnam quibusdam, sed architecto et iste
+                      laudantium nesciunt animi dolor atque ea pariatur quisquam
+                      natus ex vel sunt distinctio id.
+                    </p>
+                  </Link>
+                  {/* Publication date */}
+                  <p className="text-gray-600 text-sm">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Illum consequuntur dolor a voluptatem. Similique eligendi,
+                    voluptas dolor cupiditate doloremque nihil hic debitis rem
+                    repellat repudiandae in velit adipisci nobis exercitationem.
+                  </p>
+                </div>
+                <div className="flex items-center odd:bg-gray-200 even:bg-bg-color p-3 justify-center-safe gap-10">
+                  <Link
+                    to={`/blog/$`}
+                    className="flex flex-col items-center gap-4"
+                  >
+                    {/* Blog post title link */}
+                    <div className="flex items-center gap-2">
+                      {/* Post number indicator */}
+                      <span className="text-gray-600 text-sm">#{0 + 1}</span>
+                      {/* Blog post title */}
+                      <h3 className="font-semibold text-sky-600 text-lg md:text-2xl">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Libero consectetur excepturi, ullam sint, rerum sit
+                        quisquam laborum explicabo, beatae officia molestiae
+                        reiciendis! Iusto a quos distinctio at officiis sit
+                        pariatur.
+                      </h3>
+                    </div>
+                    {/* Blog post description with truncation on small screens */}
+                    <p className="text-gray-600 text-sm overflow-ellipsis overflow-hidden whitespace-nowrap max-w-[25ch] sm:max-w-fit">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Eius deleniti magnam quibusdam, sed architecto et iste
+                      laudantium nesciunt animi dolor atque ea pariatur quisquam
+                      natus ex vel sunt distinctio id.
+                    </p>
+                  </Link>
+                  {/* Publication date */}
+                  <p className="text-gray-600 text-sm">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Illum consequuntur dolor a voluptatem. Similique eligendi,
+                    voluptas dolor cupiditate doloremque nihil hic debitis rem
+                    repellat repudiandae in velit adipisci nobis exercitationem.
+                  </p>
+                </div>
+              </div>
+
+              {/* Tags sidebar */}
+              <div className="md:basis-1/4 p-5 bg-p-color/4 rounded-lg h-fit mt-4 md:sticky top-20 md:self-start">
+                <h3 className="text-xl font-semibold mb-4 w-[80px] text-s-color">
+                  التصنيفات
+                </h3>
+                {/* Render all tags with counts */}
+                <div
+                  className="flex gap-2 items-center mb-2  bg-p-color w-[100px] px-3 py-2 rounded-md cursor-pointer hover:bg-s-color/80 transition-all duration-300 ease-in-out"
+                  // Navigate to tag-specific page on click
+                  onClick={() => navigate(`/blog/tags/${1}`)}
+                >
+                  {/* Tag name */}
+                  <span className="text-white font-medium">{"lorem"}</span>
+                  {/* Tag count badge */}
+                  <span className="bg-s-color text-white text-xs font-semibold px-2 py-1 rounded-full">
+                    {2 as number}
+                  </span>
+                </div>
+                <div
+                  className="flex gap-2 items-center mb-2 bg-p-color w-[100px] px-3 py-2 rounded-md cursor-pointer hover:bg-s-color/80 transition-all duration-300 ease-in-out"
+                  // Navigate to tag-specific page on click
+                  onClick={() => navigate(`/blog/tags/${1}`)}
+                >
+                  {/* Tag name */}
+                  <span className="text-white font-medium">{"lorem"}</span>
+                  {/* Tag count badge */}
+                  <span className="bg-s-color text-white text-xs font-semibold px-2 py-1 rounded-full">
+                    {2 as number}
+                  </span>
+                </div>
+                <div
+                  className="flex gap-2 items-center mb-2 bg-p-color w-[100px] px-3 py-2 rounded-md cursor-pointer hover:bg-s-color/80 transition-all duration-300 ease-in-out"
+                  // Navigate to tag-specific page on click
+                  onClick={() => navigate(`/blog/tags/${1}`)}
+                >
+                  {/* Tag name */}
+                  <span className="text-white font-medium">{"lorem"}</span>
+                  {/* Tag count badge */}
+                  <span className="bg-s-color text-white text-xs font-semibold px-2 py-1 rounded-full">
+                    {2 as number}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </section>
+          //
+        }
+        inheritStyles
+        shimmer
+      />
+    );
   }
 
   // Show error message if data fetching fails

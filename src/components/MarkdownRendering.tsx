@@ -1,10 +1,25 @@
 import { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
+import vscDarkPlus from "react-syntax-highlighter/dist/cjs/styles/prism/vsc-dark-plus";
+
+/**
+ * MarkdownRendering Component
+ * 
+ * A component that renders markdown content with enhanced features:
+ * - Syntax highlighting for code blocks
+ * - Image URL fixing for Contentful CMS
+ * - Copy-to-clipboard functionality for code blocks
+ * - Responsive styling
+ * 
+ * @param {Object} props - Component props
+ * @param {string} props.content - The markdown content to render
+ * @returns {JSX.Element} Rendered markdown content
+ */
 export default function MarkdownRendering({ content }: { content: string }) {
-  // Fix contentful img URLs: //images.ctfassets.net/... to https://images.ctfassets.net/...
+  // Fix Contentful image URLs: convert protocol-relative URLs (//images.ctfassets.net/)
+  // to absolute HTTPS URLs for proper loading
   const fixedContent = content.replace(
     /\!\[(.*?)\]\(\/\/(.*?)\)/g,
     "![$1](https://$2)"
@@ -12,11 +27,16 @@ export default function MarkdownRendering({ content }: { content: string }) {
 
   return (
     <div>
+      {/* 
+        ReactMarkdown component renders markdown content
+        rehypeRaw allows parsing of raw HTML within markdown
+      */}
       <ReactMarkdown
         rehypePlugins={[rehypeRaw]}
         components={{
-          // add https to img src if missing
+          // Custom image component to handle protocol-relative URLs
           img: ({ src, alt }) => {
+            // Ensure image URLs have proper protocol (https://)
             const fixedSrc = src?.startsWith("//") ? "https:" + src : src;
             return (
               <img
@@ -26,6 +46,7 @@ export default function MarkdownRendering({ content }: { content: string }) {
               />
             );
           },
+          // Custom code block component with syntax highlighting and copy functionality
           code: CodeBlock,
         }}
       >
@@ -35,43 +56,76 @@ export default function MarkdownRendering({ content }: { content: string }) {
   );
 }
 
-//code block
+/**
+ * CodeBlock Component
+ * 
+ * Renders code blocks with syntax highlighting and copy-to-clipboard functionality.
+ * Handles both inline code (single backticks) and code blocks (triple backticks).
+ * 
+ * @param {Object} props - Component props
+ * @param {boolean} props.inline - Whether the code is inline (single backticks)
+ * @param {string} props.className - CSS class name, contains language info for code blocks
+ * @param {ReactNode} props.children - The code content to display
+ * @returns {JSX.Element} Rendered code block or inline code
+ */
 function CodeBlock({ inline, className, children }: any) {
+  // State to track if code has been copied to clipboard
   const [copied, setCopied] = useState(false);
 
-  //   language-xxxx
+  // Extract programming language from className (format: language-xxxx)
+  // Example: className="language-javascript" -> extracts "javascript"
   const match = /language-(\w+)/.exec(className || "");
   const language = match ? match[1] : "";
 
+  // Remove trailing newline from code text for cleaner display
   const codeText = String(children).replace(/\n$/, "");
 
+  /**
+   * Copies the code text to the user's clipboard
+   * Shows feedback by setting copied state for 2 seconds
+   */
   const copyToClipboard = () => {
     navigator.clipboard.writeText(codeText);
     setCopied(true);
+    // Reset copied status after 2 seconds
     setTimeout(() => setCopied(false), 2000);
   };
 
+  // Render inline code (single backticks in markdown)
   if (inline) {
-    return <code className="bg-gray-200 rounded px-1 py-0.5">{children}</code>;
+    return (
+      <code className="bg-gray-200 rounded px-1 py-0.5">
+        {children}
+      </code>
+    );
   }
 
+  // Render code block with syntax highlighting (triple backticks in markdown)
   return (
     <div className="relative group my-4">
+      {/* Copy button - appears on hover */}
       <button
         onClick={copyToClipboard}
-        className="absolute top-2 right-2 bg-gray-700 text-white text-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity"
+        className="absolute top-2 right-2 bg-gray-700 text-white text-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity [direction:rtl]"
+        aria-label="Copy code to clipboard"
       >
         {copied ? "Copied!" : "Copy"}
       </button>
-        <span className="block absolute top-2 left-2 bg-gray-700 text-white text-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">{language}</span>
-        <SyntaxHighlighter
-        language={language}
-        style={vscDarkPlus}  // ✅ VS CODE COLOR THEME
-        showLineNumbers
+      
+      {/* Language label - appears on hover */}
+      <span className="block absolute top-2 left-2 bg-gray-700 text-white text-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+        {language}
+      </span>
+
+      {/* SyntaxHighlighter component for code formatting */}
+      <SyntaxHighlighter
+        language={language}        // Programming language for syntax highlighting
+        style={vscDarkPlus}       // VS Code Dark Plus color theme
+        showLineNumbers          // Show line numbers for better code readability
         customStyle={{
-          borderRadius: "8px",
-          padding: "30px 15px",
-          fontSize:'20px',
+          borderRadius: "8px",   // Rounded corners for the code block
+          padding: "30px 15px",  // Ample padding for code content
+          fontSize: "20px",      // Larger font size for better readability
         }}
       >
         {codeText}
