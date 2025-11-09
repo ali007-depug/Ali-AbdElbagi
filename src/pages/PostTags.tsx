@@ -2,6 +2,8 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import usePostsWithTags from "../hooks/useTags";
 import Loading from "../components/Loading";
 import Error from "./Error";
+import { AutoSkeletonLoader } from "react-loadly";
+import PostTagsSkelton from "../components/PostTagsSkelton";
 
 export default function PostsTags() {
   // Get the tag parameter from the route URL
@@ -16,7 +18,7 @@ export default function PostsTags() {
 
   // Show loading state while fetching posts
   if (isLoading) {
-    return <Loading />;
+    return <AutoSkeletonLoader component={<PostTagsSkelton/>} shimmer highlightColor="#6a85a1" shimmerColor="#1e2c3a"/>;
   }
 
   // Handle case where no posts are found for the given tag
@@ -25,7 +27,7 @@ export default function PostsTags() {
   // Render list of posts with the specified tag
   const tagPost = posts.map((post: any, index: number) => {
     // Destructure post fields from Contentful response
-    const { title, description, media, uniqueUrl } = post.fields;
+    const { title, description, uniqueUrl } = post.fields;
 
     return (
       <article

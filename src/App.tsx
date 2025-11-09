@@ -11,7 +11,7 @@ const AboutMe = lazy(() => import("./pages/AboutMe"));
 const MySkills = lazy(() => import("./pages/MySkills"));
 const MyBlog = lazy(() => import("./pages/MyBlog"));
 
-const BlogPost = lazy(()=> import("./pages/blogPost"));
+const BlogPost = lazy(()=> import("./pages/BlogPost"));
 const PostTags = lazy(()=>import('./pages/PostTags'));
 import Loading from "./components/Loading";
 import Error from "./pages/Error";
