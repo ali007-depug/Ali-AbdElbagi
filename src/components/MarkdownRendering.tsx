@@ -6,13 +6,13 @@ import vscDarkPlus from "react-syntax-highlighter/dist/cjs/styles/prism/vsc-dark
 
 /**
  * MarkdownRendering Component
- * 
+ *
  * A component that renders markdown content with enhanced features:
  * - Syntax highlighting for code blocks
  * - Image URL fixing for Contentful CMS
  * - Copy-to-clipboard functionality for code blocks
  * - Responsive styling
- * 
+ *
  * @param {Object} props - Component props
  * @param {string} props.content - The markdown content to render
  * @returns {JSX.Element} Rendered markdown content
@@ -46,6 +46,16 @@ export default function MarkdownRendering({ content }: { content: string }) {
               />
             );
           },
+          a: ({ href, children }) => (
+            <a
+              href={href}
+              className="text-sky-600 underline hover:text-blue-800"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {children}
+            </a>
+          ),
           // Custom code block component with syntax highlighting and copy functionality
           code: CodeBlock,
         }}
@@ -58,10 +68,10 @@ export default function MarkdownRendering({ content }: { content: string }) {
 
 /**
  * CodeBlock Component
- * 
+ *
  * Renders code blocks with syntax highlighting and copy-to-clipboard functionality.
  * Handles both inline code (single backticks) and code blocks (triple backticks).
- * 
+ *
  * @param {Object} props - Component props
  * @param {boolean} props.inline - Whether the code is inline (single backticks)
  * @param {string} props.className - CSS class name, contains language info for code blocks
@@ -93,11 +103,7 @@ function CodeBlock({ inline, className, children }: any) {
 
   // Render inline code (single backticks in markdown)
   if (inline) {
-    return (
-      <code className="bg-gray-200 rounded px-1 py-0.5">
-        {children}
-      </code>
-    );
+    return <code className="bg-gray-200 rounded px-1 py-0.5">{children}</code>;
   }
 
   // Render code block with syntax highlighting (triple backticks in markdown)
@@ -111,7 +117,7 @@ function CodeBlock({ inline, className, children }: any) {
       >
         {copied ? "Copied!" : "Copy"}
       </button>
-      
+
       {/* Language label - appears on hover */}
       <span className="block absolute top-2 left-2 bg-gray-700 text-white text-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
         {language}
@@ -119,13 +125,13 @@ function CodeBlock({ inline, className, children }: any) {
 
       {/* SyntaxHighlighter component for code formatting */}
       <SyntaxHighlighter
-        language={language}        // Programming language for syntax highlighting
-        style={vscDarkPlus}       // VS Code Dark Plus color theme
-        showLineNumbers          // Show line numbers for better code readability
+        language={language} // Programming language for syntax highlighting
+        style={vscDarkPlus} // VS Code Dark Plus color theme
+        showLineNumbers // Show line numbers for better code readability
         customStyle={{
-          borderRadius: "8px",   // Rounded corners for the code block
-          padding: "30px 15px",  // Ample padding for code content
-          fontSize: "20px",      // Larger font size for better readability
+          borderRadius: "8px", // Rounded corners for the code block
+          padding: "30px 15px", // Ample padding for code content
+          fontSize: "20px", // Larger font size for better readability
         }}
       >
         {codeText}

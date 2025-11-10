@@ -56,7 +56,7 @@ export default function BlogPost() {
       </h1>
 
       {/* Blog post description/subtitle */}
-      <p className="text-base md:text-xl font-semibold text-s-color mt-3 mb-8">
+      <p className="text-base md:text-xl font-semibold text-s-color mt-3 mb-8 max-w-[50ch] mx-auto">
         {description}
       </p>
 
