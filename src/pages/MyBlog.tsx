@@ -35,7 +35,7 @@ export default function MyBlog() {
         {/*posts section wrapper */}
         <article className="space-y-4 mt-4 w-full min-h-[80dvh] text-center bg-p-color sm:px-8 sm:py-4 rounded-lg md:basis-[80%] md:w-[70%] max-md:order-2">
           {/* Render all blog posts */}
-          <Posts posts={posts} />
+          <Posts posts={posts} /> 
         </article>
 
         {/* Tags sidebar */}

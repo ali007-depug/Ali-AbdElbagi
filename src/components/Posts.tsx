@@ -5,7 +5,7 @@ export default function Posts({ posts }: { posts: any }) {
   const blogPosts = posts?.map((post: any, index: number) => (
     <div
       key={post.sys.id} // Use Contentful system ID as unique key
-      className="flex  items-center odd:bg-s-color/50 rounded-md even:bg-s-color/20 p-3   justify-center-safe sm:gap-15 @container "
+      className="flex  items-center odd:bg-s-color/50 rounded-md even:bg-bg-color/20 p-3   justify-center-safe sm:gap-15 @container "
     >
       {/* post title + thumbnail + desc */}
       <Link to={`/blog/${post.fields.uniqueUrl}`}>
