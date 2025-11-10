@@ -24,8 +24,6 @@ export default function MySkills() {
 
     <SkillsBadges isLearntSkills={false} bg={'bg-gray-500'} cardWidth={'350px'}/>
     </section>
-    {/* contact */}
-    <Contact/>
     </>
   );
 }

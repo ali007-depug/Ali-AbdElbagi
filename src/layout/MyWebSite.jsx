@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import { ProjcetsProvider } from "../contexts/ProjectsContext";
 import Header from "../components/Header";
 import i18n from "../i18n";
+import Contact from "../components/Contact";
 
 export default function MyWebSite() {
   const font = i18n.language === 'ar' ? 'font-ar' : 'font-en';
@@ -15,6 +16,7 @@ export default function MyWebSite() {
           <Outlet />
         </ProjcetsProvider>
       </main>
+      <Contact/>
     </div>
   );
 }

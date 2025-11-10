@@ -1,5 +1,4 @@
 import Sidepanel from "../components/SidePanel";
-import Contact from "../components/Contact";
 import { motion } from "motion/react";
 import { useTranslation } from "react-i18next";
 
@@ -85,7 +84,6 @@ export default function AboutMe() {
         </div>
       </section>
 
-      <Contact />
     </>
   );
 }

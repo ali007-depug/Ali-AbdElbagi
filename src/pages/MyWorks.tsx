@@ -31,8 +31,6 @@ export default function MyWorks() {
         </ProjcetsProvider>
       </section>
 
-      {/* contact */}
-      <Contact />
     </>
   );
 }
