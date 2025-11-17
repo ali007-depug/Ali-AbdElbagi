@@ -4,10 +4,14 @@ import Loading from "../components/Loading";
 import Error from "./Error";
 import { AutoSkeletonLoader } from "react-loadly";
 import PostTagsSkelton from "../components/PostTagsSkelton";
+import i18n from "../i18n";
+import { t } from "i18next";
 
 export default function PostsTags() {
   // Get the tag parameter from the route URL
-  const { tag } = useParams();
+  const { tag ,lang} = useParams();
+  // sync i18n language with URL parameter
+  if (lang && i18n.language !== lang) i18n.changeLanguage(lang);
 
   // Navigation hook for programmatic routing
   const navigate = useNavigate();
@@ -33,12 +37,13 @@ export default function PostsTags() {
       
     <article
       key={post.sys.id} // Use Contentful system ID as unique key
-      className="flex  items-center odd:bg-s-color/95 rounded-md even:bg-p-color/50 p-3  w-[40%] justify-center-safe sm:gap-15 @container "
+      className="flex  items-center odd:bg-s-color/95 rounded-md even:bg-p-color/50 p-3  w-[90%] xs:w-[70%] lg:w-[50%] justify-center-safe sm:gap-15 @container "
     >
       {/* post title + thumbnail + desc */}
-      <Link to={`/blog/${uniqueUrl}`}>
-      <div className="flex flex-col  gap-5 w-full sm:flex-row items-center sm:justify-evenly ">
-        <div className="flex p-2 flex-col gap-2 w-full sm:w-[50%] ">
+      <Link to={`/${i18n.language}/blog/${uniqueUrl}`}>
+      <div className="flex flex-col  gap-5 w-full  md:flex-row items-center sm:justify-evenly">
+        {/* post texts */}
+        <div className="flex p-2 flex-col gap-2 w-full text-center md:w-[50%]">
           <p className="text-sky-400 text-2xl me-1">{index + 1}#</p>
           <div className="flex flex-col items-center gap-4">
             {/* Blog post title */}
@@ -57,7 +62,7 @@ export default function PostsTags() {
         </div>
         {/* post thumbnail */}
 
-        <div className="@sm:w-[60%] @lg:w-[30%]  border-2 border-sky-700 overflow-hidden rounded-lg ">
+        <div className="@sm:w-[60%] @lg:w-[40%]  border-2 border-sky-700 overflow-hidden rounded-lg ">
           {media && (
             <img
               src={`${media.fields?.file?.url}`} // Contentful image URL
@@ -84,11 +89,11 @@ export default function PostsTags() {
 
       {/* Back to all posts button */}
       <button
-        onClick={() => navigate("/blog")}
+        onClick={() => navigate(`/${i18n.language}/blog`)}
         className="text-bold text-base md:text-lg cursor-pointer text-p-color hover:text-sky-500 transition-all duration-300 ease-in-out underline my-3"
       >
         {/* Arabic text: "Back to all articles" */}
-        العودة لجميع المقالات 🔙
+        {t("blogPage.backToAllPosts")}
       </button>
 
       {/* Render all posts with the specified tag */}

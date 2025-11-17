@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { client } from "../lib/contentful";
+import i18n from "../i18n";
 
 /**
  * Custom React Query hook for fetching blog posts filtered by a specific tag
@@ -33,7 +34,7 @@ export default function usePostsWithTags(tag: string) {
      * This ensures queries for different tags are cached separately
      * and can be invalidated independently when needed.
      */
-    queryKey: ["blogs", "tag", tag],
+    queryKey: ["blogs", "tag", tag,i18n.language],
 
     /**
      * Async function that fetches data from Contentful
@@ -48,6 +49,7 @@ export default function usePostsWithTags(tag: string) {
       const response = await client.getEntries({
         // Target the "blog" content type in Contentful
         content_type: "blog",
+        locale: i18n.language,
 
         /**
          * Filter posts that contain the specified tag

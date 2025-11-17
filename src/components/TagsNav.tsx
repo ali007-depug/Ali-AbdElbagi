@@ -1,5 +1,8 @@
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import i18n from "../i18n";
 export default function TagsNav({posts}:{posts:any}) {
+  const {t} = useTranslation();
     const navigate = useNavigate();
      // Extract and flatten all tags from all posts
       const postTage = posts?.map((post: any) => post.fields.tag).flat();
@@ -16,7 +19,7 @@ export default function TagsNav({posts}:{posts:any}) {
           key={tag}
           className="flex gap-2 items-center mb-2 bg-white w-fit px-3 py-2 rounded-md cursor-pointer hover:bg-gray-300  transition-all duration-300 ease-in-out"
           // Navigate to tag-specific page on click
-          onClick={() => navigate(`/blog/tags/${tag}`)}
+          onClick={() => navigate(`/${i18n.language}/blog/tags/${tag}`)}
         >
           {/* Tag name */}
           <span className="text-p-color font-medium">{tag}</span>
@@ -29,7 +32,7 @@ export default function TagsNav({posts}:{posts:any}) {
 
       return(
         <>
-          <h3 className="text-xl font-semibold mb-4 text-white">التصنيفات</h3>
+          <h3 className="text-xl font-semibold mb-4 text-white">{t("blogPage.tags")}</h3>
         {allTags}
         </>
       )

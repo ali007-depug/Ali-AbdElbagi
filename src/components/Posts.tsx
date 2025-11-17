@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import i18n from "../i18n";
 export default function Posts({ posts }: { posts: any }) {
   // Render blog posts list with alternating background colors
   const blogPosts = posts?.map((post: any, index: number) => (
@@ -8,7 +8,7 @@ export default function Posts({ posts }: { posts: any }) {
       className="flex  items-center odd:bg-s-color/50 rounded-md even:bg-bg-color/20 p-3   justify-center-safe sm:gap-15 @container "
     >
       {/* post title + thumbnail + desc */}
-      <Link to={`/blog/${post.fields.uniqueUrl}`}>
+      <Link to={`/${i18n.language}/blog/${post.fields.uniqueUrl}`}>
       <div className="flex flex-col  gap-5 w-full sm:flex-row items-center sm:justify-evenly ">
         <div className="flex p-2 flex-col gap-2 w-full sm:w-[50%] ">
           <p className="text-sky-400 text-2xl me-1">{index + 1}#</p>

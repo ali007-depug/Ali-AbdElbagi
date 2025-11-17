@@ -1,8 +1,8 @@
 import { Suspense, lazy, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import Clarity from '@microsoft/clarity';
-import "react-loadly/styles.css"
+import Clarity from '@microsoft/clarity'; // for heatmap and google analytics
+import "react-loadly/styles.css" // for react-loadly skeleton loader styles
 
 const MyWebSite = lazy(() => import("./layout/MyWebSite"));
 const Home = lazy(() => import("./pages/Home"));
@@ -19,7 +19,7 @@ import Error from "./pages/Error";
 function App() {
   const { t,i18n } = useTranslation();
 
-  const CLARITY_PROJECT_ID = import.meta.env.VITE_REACT_APP_CLARITY_ID; // or your env var
+  const CLARITY_PROJECT_ID = import.meta.env.VITE_REACT_APP_CLARITY_ID; 
 
   useEffect(() => {
     // set en as default in localStorage
@@ -47,9 +47,9 @@ function App() {
           <Route path="works" element={<MyWorks />} />
           <Route path="about" element={<AboutMe />} />
           <Route path="skills" element={<MySkills />} />
-          <Route path="blog" element={<MyBlog />} />
-          <Route path="blog/:uniqueUrl/" element={<BlogPost/>} />
-          <Route path="blog/tags/:tag/" element={<PostTags/>} />
+          <Route path=":lang/blog" element={<MyBlog />} />
+          <Route path=":lang/blog/:uniqueUrl/" element={<BlogPost/>} />
+          <Route path=":lang/blog/tags/:tag/" element={<PostTags/>} />
           <Route path="*" element={<Error msg={t('errorPage.defaultMsg')}/>}/>
         </Route>
       </Routes>

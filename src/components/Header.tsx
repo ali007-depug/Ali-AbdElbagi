@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 export default function Header() {
@@ -19,7 +19,8 @@ export default function Header() {
     setIsMenuOpen(!isMenuOpen);
   }
 
-  const changeLanguage = (lng:string) => {
+  const navigate = useNavigate();
+  const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
     localStorage.setItem("i18nextLng", lng);
     document.documentElement.lang = lng;
@@ -28,6 +29,18 @@ export default function Header() {
     document.body.classList.remove("font-en", "font-ar"); // remove fonts first
     // added based on language
     document.body.classList.add(lng === "en" ? "font-en" : "font-ar");
+
+   // 🌟 Correct path read for HashRouter
+  const hash = window.location.hash; // "#/ar/blog"
+  
+  // remove "#/"
+  const cleanPath = hash.replace(/^#\//, ""); // "ar/blog"
+
+  // replace ar|en prefix
+  const newPath = cleanPath.replace(/^(ar|en)\//, `${lng}/`);
+
+  // navigate WITHOUT leading slash
+  navigate(newPath);
   };
 
   const Mobilelinks = navLinks.map((link) => {
@@ -51,7 +64,13 @@ export default function Header() {
     return (
       <li key={link.id}>
         <Link
-          to={`/${link.link === "home" ? "" : link.link}`}
+          to={
+            link.link === "home"
+              ? ""
+              : link.link === "blog"
+              ? `${i18n.language}/blog`
+              : link.link
+          }
           className={`transition-all duration-100 ease-in-out ${
             location.pathname === `/${link.link === "home" ? "" : link.link}`
               ? "border-b-s-color border-b-[3px]"
@@ -80,10 +99,7 @@ export default function Header() {
         {/* avatar + info  */}
         <div className="header__avatarWithInfo md:w-1/3">
           {/* avatar */}
-          <Link
-            to={"/"}
-            className="flex items-center gap-3 "
-          >
+          <Link to={"/"} className="flex items-center gap-3 ">
             <img
               className="size-10 object-cover rounded-full"
               src="avatar.webp"
@@ -139,7 +155,7 @@ export default function Header() {
             <div className="flex gap-2 [&_button]:text-sm  [&_button]:px-2 [&_button]:py-1  [&_button]:rounded-md [&_button]:font-semibold [&_button]:hover:bg-s-color [&_button]:focus:outline-none [&_button]:focus:ring-2 [&_button]:focus:ring-offset-2 [&_button]:focus:ring-white [&_button]:cursor-pointer transition-all duration-300 ease-in-out">
               <button
                 className={`${
-                  i18n.language || localStorage.getItem('i18n') === "en"
+                  i18n.language || localStorage.getItem("i18n") === "en"
                     ? "bg-p-color text-white"
                     : "bg-bg-color text-black"
                 }`}
@@ -167,7 +183,9 @@ export default function Header() {
             <div className="flex gap-2  [&_button]:text-sm [&_button]:px-2 [&_button]:py-1  [&_button]:text-p-color [&_button]:rounded-md [&_button]:font-semibold [&_button]:hover:bg-sky-200 [&_button]:focus:outline-none [&_button]:focus:ring-2 [&_button]:focus:ring-offset-2 [&_button]:focus:ring-white [&_button]:cursor-pointer transition-all duration-300 ease-in-out">
               <button
                 className={`${
-                  localStorage.getItem('i18nextLng') === "en" ? "bg-sky-200" : "bg-bg-color"
+                  localStorage.getItem("i18nextLng") === "en"
+                    ? "bg-sky-200"
+                    : "bg-bg-color"
                 }`}
                 onClick={() => changeLanguage("en")}
               >
@@ -175,7 +193,9 @@ export default function Header() {
               </button>
               <button
                 className={`${
-                  localStorage.getItem('i18nextLng') === "ar" ? "bg-sky-200" : "bg-bg-color"
+                  localStorage.getItem("i18nextLng") === "ar"
+                    ? "bg-sky-200"
+                    : "bg-bg-color"
                 }`}
                 onClick={() => changeLanguage("ar")}
               >
