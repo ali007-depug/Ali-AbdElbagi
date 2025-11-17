@@ -30,24 +30,30 @@ export default function Header() {
     // added based on language
     document.body.classList.add(lng === "en" ? "font-en" : "font-ar");
 
-   // 🌟 Correct path read for HashRouter
-  const hash = window.location.hash; // "#/ar/blog"
-  
-  // remove "#/"
-  const cleanPath = hash.replace(/^#\//, ""); // "ar/blog"
+    // 🌟 Correct path read for HashRouter
+    const hash = window.location.hash; // "#/ar/blog"
 
-  // replace ar|en prefix
-  const newPath = cleanPath.replace(/^(ar|en)\//, `${lng}/`);
+    // remove "#/"
+    const cleanPath = hash.replace(/^#\//, ""); // "ar/blog"
 
-  // navigate WITHOUT leading slash
-  navigate(newPath);
+    // replace ar|en prefix
+    const newPath = cleanPath.replace(/^(ar|en)\//, `${lng}/`);
+
+    // navigate WITHOUT leading slash
+    navigate(newPath);
   };
 
   const Mobilelinks = navLinks.map((link) => {
     return (
       <li key={link.id}>
         <Link
-          to={`/${link.link === "home" ? "" : link.link}`}
+          to={
+            link.link === "home"
+              ? ""
+              : link.link === "blog"
+              ? `${i18n.language}/blog`
+              : link.link
+          }
           onClick={toggleMenu}
           className={`transition-all duration-100 ease-in-out ${
             location.pathname === `/${link.link === "home" ? "" : link.link}`
