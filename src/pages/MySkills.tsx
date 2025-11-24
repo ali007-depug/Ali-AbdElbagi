@@ -1,11 +1,10 @@
-import Contact from "../components/Contact";
 import SkillsBadges from "../components/SkillsBadges";
 import { useTranslation } from "react-i18next";
 export default function MySkills() {
   const {t}  = useTranslation()
   return (
     <>
-    <section className="px-dyp py-10 bg-p-color">
+    <section className="px-dyp py-10 relative max-lg:top-[70px] sm:max-2xl:top-[111px] bg-p-color">
       {/* title */}
       <h1 className="text-dyTitle mx-auto w-fit font-bold  text-white my-5">
         {t('skillsPage.title')}

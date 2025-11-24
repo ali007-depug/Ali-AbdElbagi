@@ -67,7 +67,7 @@ export default function Contact() {
   ));
 
   return (
-    <footer className="flex relative top-[84x] flex-col pt-10" id="contact" role="contentinfo">
+    <footer className="flex relative top-[76px] sm:max-md:top-[120px] flex-col pt-10" id="contact" role="contentinfo">
       {/* title */}
       <h2 className="text-dyTitle mx-auto w-fit font-bold text-p-color my-5">
         {t("contact.title")} 📲

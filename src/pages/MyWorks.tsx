@@ -1,6 +1,5 @@
 import { ProjcetsProvider, useProjects } from "../contexts/ProjectsContext";
 import WorkCards from "../components/WorkCards";
-import Contact from "../components/Contact";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
@@ -11,7 +10,7 @@ export default function MyWorks() {
 
   return (
     <>
-      <section className="px-dyp py-10">
+      <section className="px-dyp py-10 relative max-lg:top-[70px] sm:max-2xl:top-[111px]">
         {/* title */}
         <h1 className="text-4xl mx-auto w-fit font-bold text-fluid text-p-color my-5">
           {t("worksPage.works.title")}

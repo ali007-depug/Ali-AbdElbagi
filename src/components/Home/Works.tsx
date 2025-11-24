@@ -12,7 +12,7 @@ export default function Work() {
   const { t, i18n } = useTranslation();
 
   return (
-    <div className="px-dyp relative top-[84x] my-15 pb-30" id="works">
+    <div className="px-dyp relative top-[76px] sm:max-md:top-[120px] my-15 pb-30" id="works">
       {/* section title */}
       <h1 className="text-center font-bold text-dyTitle text-p-color mb-5">
         {t("myWorks.title")}

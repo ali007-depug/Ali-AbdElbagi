@@ -1,8 +1,8 @@
 import useBlogs from "../hooks/useBlogs";
 import { AutoSkeletonLoader } from "react-loadly";
-import BlogSeklton from "../components/BlogSkelton";
-import Posts from "../components/Posts";
-import TagsNav from "../components/TagsNav";
+import BlogSeklton from "../components/blog/BlogSkelton";
+import Posts from "../components/blog/Posts";
+import TagsNav from "../components/blog/TagsNav";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import i18n from "../i18n";
@@ -30,7 +30,7 @@ export default function MyBlog() {
   }
 
   return (
-    <section className="mb-10">
+    <section className="mb-10 relative max-lg:top-[70px] sm:max-2xl:top-[111px]">
       {/* Main title */}
       <h1 className="text-3xl md:text-5xl mx-auto text-center font-bold text-p-color">
         {t("blogPage.title")}

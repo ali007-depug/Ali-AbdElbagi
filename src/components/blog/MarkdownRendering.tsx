@@ -34,6 +34,33 @@ export default function MarkdownRendering({ content }: { content: string }) {
       <ReactMarkdown
         rehypePlugins={[rehypeRaw]}
         components={{
+          h1(props){
+            const {node,...rest} = props;
+            return <h1 className="text-2xl md:text-3xl text-p-color font-bold my-4" {...rest} />;
+          },
+          h2(props){
+            const {node,...rest} = props;
+            return <h2 className="text-xl md:text-2xl text-p-color font-bold my-4" {...rest} />;
+          },
+          h3(props){
+            const {node,...rest} = props;
+            return <h3 className="text-lg md:text-xl text-p-color font-bold my-4" {...rest} />;
+          },
+          p(props){
+            const {node,...rest} = props;
+            return <p className="text-base md:text-lg text-gray-800 my-2 leading-loose" {...rest} />;
+          },
+          ol(props){
+            const {node,...rest} = props;
+            return <ol className="list-decimal list-inside my-2 ml-4" {...rest} />;
+          },
+          em(props){
+            const {node,...rest} = props;
+            return <span className="bg-sky-900  text-white rounded px-2 m-0 font-normal" {...rest} />;
+          },
+          hr: () => (
+            <hr className="my-6 border-t-2 border-p-color" />
+          ),
           // Custom image component to handle protocol-relative URLs
           img: ({ src, alt }) => {
             // Ensure image URLs have proper protocol (https://)
@@ -42,14 +69,14 @@ export default function MarkdownRendering({ content }: { content: string }) {
               <img
                 src={fixedSrc}
                 alt={alt}
-                className="max-w-full rounded-md my-4"
+                className="max-w-full rounded-md my-4 border-p-color border-2"
               />
             );
           },
           a: ({ href, children }) => (
             <a
               href={href}
-              className="text-sky-600 underline hover:text-blue-800"
+              className="text-sky-500 underline hover:text-sky-800"
               target="_blank"
               rel="noopener noreferrer"
             >

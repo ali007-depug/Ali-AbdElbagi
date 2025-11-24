@@ -2,9 +2,9 @@ import { useNavigate, useParams } from "react-router-dom";
 import useBlogPost from "../hooks/useBlogPost";
 import Error from "./Error";
 import { useTranslation } from "react-i18next";
-import MarkdownRendering from "../components/MarkdownRendering";
+import MarkdownRendering from "../components/blog/MarkdownRendering";
 import { AutoSkeletonLoader } from "react-loadly";
-import PostSkelton from "../components/PostSkelton";
+import PostSkelton from "../components/blog/PostSkelton";
 import i18n from "../i18n";
 
 export default function BlogPost() {

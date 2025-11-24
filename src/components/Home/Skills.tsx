@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 export default function Skills() {
   const { t,i18n } = useTranslation();
   return (
-    <div className="px-dyp relative top-[84x] py-10 bg-p-color" id="skills">
+    <div className="px-dyp relative top-[76px] sm:max-md:top-[120px] py-10 bg-p-color" id="skills">
       <h1 className="text-center font-bold text-dyTitle text-white mb-5">
         {t("mySkills.title")}
       </h1>

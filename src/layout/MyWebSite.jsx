@@ -1,8 +1,8 @@
 import { Outlet } from "react-router-dom";
 import { ProjcetsProvider } from "../contexts/ProjectsContext";
-import Header from "../components/Header";
+import Header from "../components/Header/Header";
 import i18n from "../i18n";
-import Contact from "../components/Contact";
+import Contact from "../components/Home/Contact";
 import ScrollToTop from "../components/ScrollToTop";
 
 export default function MyWebSite() {
