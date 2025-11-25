@@ -30,9 +30,9 @@ export default function MyBlog() {
   }
 
   return (
-    <section className="mb-10 relative max-lg:top-[70px] sm:max-2xl:top-[111px]">
+    <section className="mb-10 px-dyp py-5  relative top-[76px] sm:max-md:top-[111px]">
       {/* Main title */}
-      <h1 className="text-3xl md:text-5xl mx-auto text-center font-bold text-p-color">
+      <h1 className="text-3xl md:text-5xl mb-5 mx-auto text-center font-bold text-p-color">
         {t("blogPage.title")}
       </h1>
 
@@ -46,7 +46,7 @@ export default function MyBlog() {
         {t("blogPage.recentPosts")}
       </h2>
       {/* post + tags Wrapper */}
-      <div className="flex max-md:flex-col px-8 gap-5">
+      <div className="flex max-md:flex-col px- gap-5">
         {/*posts section wrapper */}
         <article className="space-y-4 mt-4 w-full min-h-[80dvh] text-center bg-p-color sm:px-8 sm:py-4 rounded-lg md:basis-[80%] md:w-[70%] max-md:order-2">
           {/* Render all blog posts */}

@@ -5,6 +5,7 @@ import { MdArticle } from "react-icons/md";
 import { HiChevronDoubleDown } from "react-icons/hi2";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import CTAButton from "../CTAButton";
 
 export default function Hero() {
   const { t, i18n } = useTranslation();
@@ -12,14 +13,14 @@ export default function Hero() {
 
   useEffect(() => {
     let scrollPosition = window.scrollY;
-    console.log(scrollPosition)
+    console.log(scrollPosition);
     const scroll = () => {
-      if (scrollPosition > window.scrollY && window.scrollY > 0 ) {
+      if (scrollPosition > window.scrollY && window.scrollY > 0) {
         setShowAboutMeScrollDown(true);
-      } else if(scrollPosition === 0) {
+      } else if (scrollPosition === 0) {
         setShowAboutMeScrollDown(false);
       }
-      scrollPosition = window.scrollY
+      scrollPosition = window.scrollY;
     };
     window.addEventListener("scroll", scroll);
     return () => window.removeEventListener("scroll", scroll);
@@ -66,36 +67,33 @@ export default function Hero() {
         {/* buttons */}
         <div className="flex @xs:flex-wrap @xs:justify-center w-fit max-lg:mx-auto gap-5 mt-8">
           {/* contact button */}
-          <a
+          <CTAButton
+            isLink={true}
             href="https://www.linkedin.com/in/ali-abdelbagi-02313b223/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center px-8 py-4 w-fit max-md:mx-auto rounded-full  bg-p-color text-white hover:bg-s-color border border-sky-400 transition-all duration-300 ease-in-out md:text-lg"
-          >
-            <span className="block">{t("hero.btnText")} </span>
-            <span className="block">
-              <FaLinkedin className="inline ms-2" size={25} color="#eee" />
-            </span>
-          </a>
+            icon={
+              <FaLinkedin className="self-center ms-2" size={25} color="#eee" />
+            }
+            action={t("hero.btnText")}
+            customStyle="bg-p-color hover:bg-s-color max-md:mx-auto rounded-full text-white  border border-sky-400 md:text-lg"
+          />
           {/* blog button */}
-          <Link
+          <CTAButton
+            isLink={false}
             to={`/${i18n.language}/blog`}
-            className="flex items-center px-8 py-4 w-fit max-md:mx-auto rounded-full  bg-s-color text-white hover:bg-s-color/80  border border-accen transition-all duration-300 ease-in-out md:text-lg"
-          >
-            <span className="block">{t("hero.blogBtn")}</span>
-            <span className="block">
-              <MdArticle className="inline ms-2" size={25} color="#eee" />
-            </span>
-          </Link>
+            action={t("hero.blogBtn")}
+            icon={
+              <MdArticle className=" self-center ms-2" size={25} color="#eee" />
+            }
+            customStyle="w-fit max-md:mx-auto rounded-full  bg-s-color text-white hover:bg-s-color/80 md:text-lg"
+          />
         </div>
+        {/* Next Section */}
         {showAboutMeScrollDown && (
           <div className="hidden lg:flex items-center px-5 py-3 absolute bottom-0 rounded-full bg-s-color/50 text-white animate-bounce w-fit">
-             {t("aboutMe.title")} <HiChevronDoubleDown color="#223549" />
+            {t("aboutMe.title")} <HiChevronDoubleDown color="#223549" />
           </div>
         )}
-        {/* Next Section */}
       </div>
-      {/* </div> */}
     </section>
   );
 }

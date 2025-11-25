@@ -1,11 +1,11 @@
 import { useParams, useNavigate, Link } from "react-router-dom";
 import usePostsWithTags from "../hooks/useTags";
-import Loading from "../components/Loading";
 import Error from "./Error";
 import { AutoSkeletonLoader } from "react-loadly";
-import PostTagsSkelton from "../components/PostTagsSkelton";
+import PostTagsSkelton from "../components/blog/PostTagsSkelton";
 import i18n from "../i18n";
 import { t } from "i18next";
+import { TbArrowBack } from "react-icons/tb";
 
 export default function PostsTags() {
   // Get the tag parameter from the route URL
@@ -87,15 +87,15 @@ export default function PostsTags() {
         {tag}
       </h1>
 
-      {/* Back to all posts button */}
+ {/* Back to all posts button */}
       <button
         onClick={() => navigate(`/${i18n.language}/blog`)}
-        className="text-bold text-base md:text-lg cursor-pointer text-p-color hover:text-sky-500 transition-all duration-300 ease-in-out underline my-3"
+        className="flex flex-col items-center gap-2 mx-auto text-bold text-base md:text-lg cursor-pointer text-p-color hover:text-sky-500 transition-all duration-300 ease-in-out underline my-3"
       >
+        <TbArrowBack/> 
         {/* Arabic text: "Back to all articles" */}
         {t("blogPage.backToAllPosts")}
       </button>
-
       {/* Render all posts with the specified tag */}
       {tagPost}
     </main>

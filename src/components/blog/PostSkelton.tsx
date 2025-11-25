@@ -1,6 +1,6 @@
 export default function PostSkelton(){
     return(
-                  <main className="text-center space-y-2 max-md:px-5">
+                  <main className="text-center space-y-2  relative top-[76px] sm:max-md:top-[111px] max-md:px-5">
                     {/* Back to all posts button */}
                     <button
                       className="text-bold text-base md:text-lg cursor-pointer text-p-color hover:text-sky-500  transition-all duration-300 ease-in-out underline my-3"

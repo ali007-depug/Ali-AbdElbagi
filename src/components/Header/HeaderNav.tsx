@@ -21,21 +21,27 @@ export default function Nav({ isMenuOpen, toggleMenu }: NavProp) {
   const { t, i18n } = useTranslation();
 
   const links = navLinks.map((link) => {
+    const isActive =
+      link.link === "blog"
+        ? location.pathname.startsWith(`/${i18n.language}/blog`) 
+        : link.link === "home"
+        ? location.pathname === "/"
+        : location.pathname === `/${link.link}`;
+
+    const to =
+      link.link === "home"
+        ? "/"
+        : link.link === "blog"
+        ? `/${i18n.language}/blog`
+        : `/${link.link}`;
+
     return (
       <li key={link.id}>
         <Link
-          to={
-            link.link === "home"
-              ? ""
-              : link.link === "blog"
-              ? `${i18n.language}/blog`
-              : link.link
-          }
+          to={to}
           onClick={isMenuOpen ? toggleMenu : undefined}
           className={`transition-all duration-100 ease-in-out ${
-            location.pathname === `/${link.link === "home" ? "" : link.link === "blog" ? `${i18n.language}/blog` : link.link}`
-              ? "border-b-s-color border-b-[3px]"
-              : ""
+            isActive ? "border-b-s-color border-b-[3px]" : ""
           }`}
         >
           {t(`header.menu.${link.link}`)}

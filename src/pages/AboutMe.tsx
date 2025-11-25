@@ -14,10 +14,9 @@ export default function AboutMe() {
     returnObjects: true,
   }) as Paragraph[];
   return (
-    <>
-      <section className="px-dyp py-10 relative max-lg:top-[70px] sm:max-2xl:top-[111px] bg-p-color">
+      <section className="px-dyp py-5 md:py  relative top-[76px] sm:max-md:top-[111px]  bg-p-color">
         {/* Section title */}
-        <h1 className="text-dyTitle mx-auto w-fit font-bold text-white my-5">
+        <h1 className="text-dyTitle mx-auto w-fit font-bold text-white mb-5">
           {t("aboutPage.about.title")}
         </h1>
 
@@ -84,6 +83,5 @@ export default function AboutMe() {
         </div>
       </section>
 
-    </>
   );
 }

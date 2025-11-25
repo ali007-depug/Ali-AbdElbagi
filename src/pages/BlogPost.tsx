@@ -6,15 +6,16 @@ import MarkdownRendering from "../components/blog/MarkdownRendering";
 import { AutoSkeletonLoader } from "react-loadly";
 import PostSkelton from "../components/blog/PostSkelton";
 import i18n from "../i18n";
+import { TbArrowBack } from "react-icons/tb";
 
 export default function BlogPost() {
   // Translation hook for internationalization
   const { t } = useTranslation();
   // Get the unique URL parameter from the route
-  const { uniqueUrl,lang } = useParams();
+  const { uniqueUrl, lang } = useParams();
 
   // sync i18n language with URL parameter
-    if (lang && i18n.language !== lang) i18n.changeLanguage(lang);
+  if (lang && i18n.language !== lang) i18n.changeLanguage(lang);
 
   // Navigation hook for programmatic routing
   const navigate = useNavigate();
@@ -41,15 +42,16 @@ export default function BlogPost() {
 
   // Destructure post fields from Contentful response
   // Note: Using 'any' type here - in production, consider defining proper TypeScript interfaces
-  const { title, description ,content, tag } = post?.fields as any;
+  const { title, description, content, tag } = post?.fields as any;
 
   return (
-    <main className="text-center space-y-2 max-md:px-5">
+    <section className="text-center py-5 space-y-2 max-md:px-5  relative top-[76px] sm:max-md:top-[111px]">
       {/* Back to all posts button */}
       <button
         onClick={() => navigate(`/${i18n.language}/blog`)}
-        className="text-bold text-base md:text-lg cursor-pointer text-p-color hover:text-sky-500 transition-all duration-300 ease-in-out underline my-3"
+        className="flex flex-col items-center gap-2 mx-auto text-bold text-base md:text-lg cursor-pointer text-p-color hover:text-sky-500 transition-all duration-300 ease-in-out underline my-3"
       >
+        <TbArrowBack/> 
         {/* Arabic text: "Back to all articles" */}
         {t("blogPage.backToAllPosts")}
       </button>
@@ -74,8 +76,6 @@ export default function BlogPost() {
       <span className="inline-block mb-5 bg-p-color text-sky-400 text-xs font-semibold px-2 py-1 rounded-md">
         #{tag}
       </span>
-
-      
-    </main>
+    </section>
   );
 }

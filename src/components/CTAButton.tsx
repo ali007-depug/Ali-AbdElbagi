@@ -1,0 +1,42 @@
+import { Link } from "react-router-dom";
+
+interface CTAButtonProps {
+  isLink: boolean;
+  href?: string;
+  to?: string;
+  action: string;
+  icon: React.ReactNode;
+  customStyle: string;
+}
+export default function CTAButton({
+  isLink,
+  href,
+  to,
+  action,
+  icon,
+  customStyle,
+}: CTAButtonProps) {
+  if (isLink) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`flex items-center px-8 py-4 w-fit ${customStyle}  transition-all duration-300 ease-in-out `}
+      >
+        <span className="block">{action} </span>
+        <span className="block">{icon}</span>
+      </a>
+    );
+  }
+
+  return (
+    <Link
+      to={`${to}`}
+      className={`flex items-center px-8 py-4 gap-2 transition-all duration-300 ease-in-out ${customStyle}`}
+    >
+      <span className="block">{action}</span>
+      <span className="block">{icon}</span>
+    </Link>
+  );
+}

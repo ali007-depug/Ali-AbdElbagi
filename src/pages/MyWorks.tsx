@@ -10,9 +10,9 @@ export default function MyWorks() {
 
   return (
     <>
-      <section className="px-dyp py-10 relative max-lg:top-[70px] sm:max-2xl:top-[111px]">
+      <section className="px-dyp py-5 md:py  relative top-[76px] sm:max-md:top-[111px]">
         {/* title */}
-        <h1 className="text-4xl mx-auto w-fit font-bold text-fluid text-p-color my-5">
+        <h1 className="text-4xl mx-auto w-fit font-bold text-fluid text-p-color mb-5">
           {t("worksPage.works.title")}
         </h1>
 

@@ -1,15 +1,13 @@
 import { Outlet } from "react-router-dom";
 import { ProjcetsProvider } from "../contexts/ProjectsContext";
 import Header from "../components/Header/Header";
-import i18n from "../i18n";
-import Contact from "../components/Home/Contact";
+import Contact from "../components/Home/contact/Contact";
 import ScrollToTop from "../components/ScrollToTop";
 
 export default function MyWebSite() {
-  const font = i18n.language === 'ar' ? 'font-ar' : 'font-en';
 
   return (
-    <div className={`min-h-[100dvh] ${font}`}>
+    <div className={`min-h-[100dvh] font-ar`}>
       <ScrollToTop/>
       <Header />
       <main className="">

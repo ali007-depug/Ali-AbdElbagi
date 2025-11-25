@@ -2,12 +2,10 @@ import { Fragment } from "react";
 import { motion } from "framer-motion";
 
 interface SkillsBadgesProps {
-  cardWidth?: string;
   isLearntSkills?: boolean;
   bg?: string;
 }
 export default function SkillsBadges({
-  cardWidth = "350px",
   isLearntSkills = true,
   bg = "bg-sky-900",
 }:SkillsBadgesProps) {
@@ -36,7 +34,7 @@ export default function SkillsBadges({
 
   return (
     <motion.div
-      className={`grid grid-cols-[repeat(auto-fill,minmax(${cardWidth},1fr))]  gap-6`}
+      className={`grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))]  gap-6 pb-15`}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
