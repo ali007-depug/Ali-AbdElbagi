@@ -8,7 +8,7 @@
       "about": "About",
       "works": "Works",
       "skills": "Skills",
-      "blog" : "Blog"
+      "blog": "Blog"
     },
     "aria": {
       "openMenu": "open menu",
@@ -20,9 +20,10 @@
     "hi": "Hi",
     "heading": "I'm Ali Abd-Elbagi",
     "name": "I'm Ali",
-    "job": "a Front-End Developer & Computer Engineer.",
-    "desc": "I like turning ideas into functional, elegant web interfaces.",
-    "btnText": "Let's Talk!"
+    "job": "Front-End Developer & Computer Engineer.",
+    "desc": "Interested in building web applications that provide value and save time and money.",
+    "btnText": "Let's Talk!",
+    "blogBtn": "Browse My Blog"
   },
   "aboutMe": {
     "title": "About Me",
@@ -31,7 +32,11 @@
     "smallBreif": ", a Computer Engineer from Sudan who graduated from University of Gazira in 2025.",
     "aboutTech": " My passion for technology started in childhood around 2008-2010 through activities like gaming, browsing the internet, and using platforms like Facebook & G9G . What began as simple fun sparked a deep interest in how technology works, which solidified by high school into a desire to pursue a computer-related field of study.",
     "getInTouch": "See My Content On LinkedIn",
-    "btnStory": "Read My Full Story"
+    "btnStory": "Read My Full Story",
+    "techCard": "Passionate About Software",
+    "uOfG": "University of Gazira Graduate",
+    "workCard": "Collaborative In Teamwork",
+    "learnCard": "Dedicated Learner"
   },
   "myWorks": {
     "title": "My Works",
@@ -146,18 +151,18 @@
     }
   },
   "skillsPage": {
-      "title": "My Skills",
-      "description": "I’ve worked with a variety of tools and technologies in real-world projects. Here’s a snapshot of what I use to design, build, and deploy frontend applications.",
-      "nextLevelTitle": "Next-Level Tools I’m Diving Into"
+    "title": "My Skills",
+    "description": "I’ve worked with a variety of tools and technologies in real-world projects. Here’s a snapshot of what I use to design, build, and deploy frontend applications.",
+    "nextLevelTitle": "Next-Level Tools I’m Diving Into"
   },
-  "blogPage":{
+  "blogPage": {
     "title": "Articles",
-    "description" : "Welcome to my blog where I share my thoughts, experiences, and tips on web development Programming and some tips about life, good reading! 😊",
-    "recentPosts" : " Recent Articles ✍️",
+    "description": "Welcome to my blog where I share my thoughts, experiences, and tips on web development Programming and some tips about life, good reading! 😊",
+    "recentPosts": " Recent Articles ✍️",
     "tags": "Tags",
-    "backToAllPosts":"🔙 Back to All Posts"
+    "backToAllPosts": "Back to All Posts"
   },
-  "errorPage":{
-    "defaultMsg":"Page Not Found , Please Go To Previous Page"
+  "errorPage": {
+    "defaultMsg": "Page Not Found , Please Go To Previous Page"
   }
 }
