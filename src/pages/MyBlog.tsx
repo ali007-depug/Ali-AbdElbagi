@@ -1,6 +1,3 @@
-import useBlogs from "../hooks/useBlogs";
-import { AutoSkeletonLoader } from "react-loadly";
-import BlogSeklton from "../components/blog/BlogSkelton";
 import Posts from "../components/blog/Posts";
 import TagsNav from "../components/blog/TagsNav";
 import { useTranslation } from "react-i18next";
@@ -9,25 +6,11 @@ import i18n from "../i18n";
 export default function MyBlog() {
   // useTranslation
   const { t } = useTranslation();
-  // Fetch blog posts data using custom hook
-  const { data: posts, isLoading, isError } = useBlogs();
-
   // Get language parameter from URL
   const { lang } = useParams();
   // sync i18n language with URL parameter
   if (lang && i18n.language !== lang) i18n.changeLanguage(lang);
 
-  // Show loading state while data is being fetched
-  if (isLoading) {
-    return (
-      <AutoSkeletonLoader component={<BlogSeklton />} inheritStyles shimmer />
-    );
-  }
-
-  // Show error message if data fetching fails
-  if (isError) {
-    return <div>Error loading blog posts.</div>;
-  }
 
   return (
     <section className="mb-10 px-dyp py-5  relative top-[76px] sm:max-md:top-[111px]">
@@ -46,16 +29,23 @@ export default function MyBlog() {
         {t("blogPage.recentPosts")}
       </h2>
       {/* post + tags Wrapper */}
-      <div className="flex max-md:flex-col px- gap-5">
+      <div className="flex max-lg:flex-col px- gap-5">
         {/*posts section wrapper */}
-        <article className="space-y-4 mt-4 w-full min-h-[80dvh] text-center bg-p-color sm:px-8 sm:py-4 rounded-lg md:basis-[80%] md:w-[70%] max-md:order-2">
+        <article className="space-y-4 mt-4 w-full basis-[80%] min-h-[80dvh] text-center bg-p-color sm:px-3 sm:py-2 rounded-lg  max-lg:order-2">
           {/* Render all blog posts */}
-          <Posts posts={posts} />
+          <Posts  />
         </article>
 
         {/* Tags sidebar */}
-        <div className="md:basis-[20%]  p-5 bg-p-color rounded-lg h-fit mt-4 md:sticky md:top-20 md:self-start ">
-          <TagsNav posts={posts} />
+        <div className="flex flex-col gap-2 lg:basis-[25%]  p-5 bg-p-color rounded-lg h-fit mt-4 lg:sticky lg:top-20 lg:self-start ">
+          {/* Tag title */}
+          <h3 className="text-xl font-semibold mb-4 text-white">
+            {t("blogPage.tags")}
+          </h3>
+          {/* Tags */}
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-2">
+          <TagsNav />
+          </div>
         </div>
       </div>
     </section>

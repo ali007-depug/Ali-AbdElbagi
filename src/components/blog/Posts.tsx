@@ -1,17 +1,26 @@
 import { Link } from "react-router-dom";
 import i18n from "../../i18n";
-export default function Posts({ posts }: { posts: any }) {
+import useBlogs from "../../hooks/useBlogs";
+import { AutoSkeletonLoader } from "react-loadly";
+import PostSkelton from "./PostSkelton";
+import PostsSkelton from "./PostsSkelton";
+export default function Posts() {
+  // Fetch blog posts data using custom hook
+  const { data: posts, isLoading, isError } = useBlogs();
   // Render blog posts list with alternating background colors
   const blogPosts = posts?.map((post: any, index: number) => (
     <div
       key={post.sys.id} // Use Contentful system ID as unique key
-      className="flex  items-center odd:bg-s-color/50 rounded-md even:bg-bg-color/20 p-3   justify-center-safe sm:gap-15 @container "
+      className="flex items-center odd:bg-s-color/50 rounded-md even:bg-bg-color/20 py-2.5 px-3 justify-center sm:gap-15 @container"
     >
       {/* post title + thumbnail + desc */}
-      <Link to={`/${i18n.language}/blog/${post.fields.uniqueUrl}`}>
-      <div className="flex flex-col  gap-5 w-full sm:flex-row items-center sm:justify-evenly ">
+      <Link
+        to={`/${i18n.language}/blog/${post.fields.uniqueUrl}`}
+        className="flex max-sm:flex-col gap-5 w-full items-center sm:justify-evenly group hover:bg-s-color/50 transition-all duration-150 ease-in-out"
+      >
+        {/* post details */}
         <div className="flex p-2 flex-col gap-2 w-full sm:w-[50%] ">
-          <p className="text-sky-400 text-2xl me-1">{index + 1}#</p>
+          <p className="text-sky-400 text-2xl w-fit mx-auto">{index + 1}#</p>
           <div className="flex flex-col items-center gap-4">
             {/* Blog post title */}
             <h3 className="font-extrabold text-white text-lg md:text-2xl text-balance min-w-[20ch]">
@@ -28,22 +37,25 @@ export default function Posts({ posts }: { posts: any }) {
           <p className="text-gray-100 text-sm">🗓️ {post.fields.date}</p>
         </div>
         {/* post thumbnail */}
-
-        <div className="@sm:w-[60%] @lg:w-[30%]  border-2 border-sky-700 overflow-hidden rounded-lg ">
+        <div className="max-sm:max-w-[90%] sm:w-[50%] md:w-[45%] lg:w-[35%] aspect-video border-2 border-sky-700 overflow-hidden rounded-lg max-sm:-order-1 group-hover:scale-105 transition-all duration-300 ease-out">
           {post.fields.media && (
             <img
               src={`${post?.fields.media.fields?.file?.url}`} // Contentful image URL
               alt={post.fields.title} // Use post title as alt text for accessibility
-              width={50}
-              height={50}
-              className="w-full object-contain" // Responsive image styling
+              width={365}
+              height={200}
+              className="w-full h-full object-cover" // Responsive image styling
+              loading="lazy"
             />
           )}
         </div>
-      </div>
       </Link>
     </div>
   ));
 
+  if(isLoading){
+    return <AutoSkeletonLoader component={<PostsSkelton/>}/>
+  }
+  isError && <div>Error loading blog posts.</div>;
   return <>{blogPosts}</>;
 }

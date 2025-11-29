@@ -70,13 +70,14 @@ export default function MarkdownRendering({ content }: { content: string }) {
                 src={fixedSrc}
                 alt={alt}
                 className="max-w-full rounded-md my-4 border-p-color border-2"
+                loading="lazy"
               />
             );
           },
           a: ({ href, children }) => (
             <a
               href={href}
-              className="text-sky-500 underline hover:text-sky-800"
+              className="text-sky-800 underline hover:text-sky-500"
               target="_blank"
               rel="noopener noreferrer"
             >

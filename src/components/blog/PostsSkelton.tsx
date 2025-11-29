@@ -1,29 +1,6 @@
-export default function BlogSeklton() {
-  return (
-    <section className="mb-10 px-dyp py-5 md:py  relative top-[76px] sm:max-md:top-[111px]">
-            {/* Main title */}
-      <article className="bg-p-color w-[200px] mx-auto h-8 flex justify-center items-center rounded-full">
-        <p>
-        lorem lorem lorem
-        </p>
-      </article>
-
-      {/* desc */}
-      <article className="bg-s-color rounded-full font-semibold mx-auto text-center w-[30ch] h-15 sm:w-[50ch] mt-5 flex justify-center items-center">
-        <p>
-        lorem lorem lorem
-        </p>
-      </article>
-
-      <article className="w-[200px] p-5 h-10 bg-p-color rounded-full flex items-center justify-center">
-      {/* Subtitle */}
-      <h2 className="text-2xl mt-4 md:text-3xl font-semibold text-s-color ms-10">
-        lorem lorem lorem
-      </h2>
-      </article>
-
-      <div className="flex max-md:flex-col gap-5">
-        <article className="space-y-4 mt-4 w-full min-h-[80dvh] text-center bg-p-color sm:px-8 sm:py-4 rounded-lg md:basis-[80%] md:w-[70%] max-md:order-2">
+export default function PostsSkelton(){
+    return(
+        <article className="space-y-4 mt-4 w-full min-h-[80dvh] text-center bg-p-color sm:px-8 sm:py-4 rounded-lg md:basis-[80%]  max-md:order-2">
           {/* Render all blog posts */}
           <div className="flex  items-center odd:bg-s-color/50 rounded-md even:bg-bg-color p-3   justify-center-safe sm:gap-15 @container ">
             {/* post title + thumbnail + desc */}
@@ -85,20 +62,5 @@ export default function BlogSeklton() {
           </div>
         </article>
 
-        {/* Tags sidebar */}
-        <div className="md:basis-[20%]  p-5 bg-p-color rounded-lg h-fit mt-4 md:sticky md:top-20 md:self-start ">
-          <h3 className="text-xl font-semibold mb-4 text-white">التصنيفات</h3>
-          <div
-            className="flex gap-2 justify-center  mb-2 bg-white w-[200px] px-3 py-2 rounded-md cursor-pointer hover:bg-gray-300  transition-all duration-300 ease-in-out"
-            // Navigate to tag-specific page on click
-          >
-            {/* Tag name */}
-            <span className="text-p-color font-medium"></span>
-            {/* Tag count badge */}
-            <span className="bg-p-color text-white text-xs font-semibold px-2 py-1 rounded-full"></span>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+    )
 }
