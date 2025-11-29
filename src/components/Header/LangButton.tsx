@@ -33,7 +33,7 @@ export default function ChangeLangButton({ language }: {language:string}) {
       className={`${
         i18n.language === language
           ? `bg-p-color`
-          : `bg-p-color/60 hover:bg-p-color cursor-pointer`
+          : `bg-p-color/40 hover:bg-p-color cursor-pointer`
       } text-white text-sm px-2 py-2 rounded-md font-semibold focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white  transition-all duration-300 ease-in-out`}
       onClick={() => changeLanguage(language)}
     >
