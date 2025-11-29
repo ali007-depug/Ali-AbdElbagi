@@ -84,7 +84,7 @@ export default function Hero() {
             icon={
               <MdArticle className=" self-center ms-2" size={25} color="#eee" />
             }
-            customStyle="w-fit max-md:mx-auto rounded-full  bg-s-color text-white hover:bg-s-color/80 md:text-lg"
+            customStyle="max-md:mx-auto rounded-full  bg-s-color text-white hover:bg-s-color/80 md:text-lg"
           />
         </div>
         {/* Next Section */}
