@@ -14,12 +14,13 @@ export default function ConatctAccounts({
 }: ConatctAccountsProps) {
   const { t } = useTranslation();
   return (
-    <div className="flex flex-col gap-4 bg-p-color items-center">
-      <div>{icon}</div>
+    <div className="flex md:flex-col gap-4 max-md:w-[230px] justify-between items-center">
       {/* text */}
-      <p className="text-sm text-white">
+      <p className="text-sm text-white ">
         {t("contact.via", { platform: name })}
       </p>
+      <div>{icon}</div>
+
       {/* link */}
       <a
         href={href}

@@ -31,7 +31,7 @@ export default function AboutText() {
               <FaArrowCircleRight className="rotate-180" />
             )
           }
-          customStyle="rounded-full max-lg:mt-10 max-lg:mx-auto lg:absolute bottom-0 ltr:lg:translate-x-1/2 rtl:lg:-translate-x-1/2  bg-white text-p-color hover:bg-sky-600 hover:text-white border-2 border-sky-500 cursor-pointer font-bold md:text-xl transition-all duration-200 ease-linear"
+          customStyle="rounded-full max-lg:mt-10 max-lg:w-fit max-lg:mx-auto lg:absolute bottom-0 ltr:lg:translate-x-1/2 rtl:lg:-translate-x-1/2  bg-white text-p-color hover:bg-sky-600 hover:text-white border-2 border-sky-500 cursor-pointer font-bold md:text-xl transition-all duration-200 ease-linear"
         />
       </div>
     </div>

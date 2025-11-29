@@ -8,7 +8,6 @@ import { useTranslation } from "react-i18next";
 import { AutoSkeletonLoader } from "react-loadly";
 import { TbArrowBack } from "react-icons/tb";
 import i18n from "../i18n";
-import { Suspense } from "react";
 
 export default function BlogPost() {
   // Translation hook for internationalization

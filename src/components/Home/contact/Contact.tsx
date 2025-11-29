@@ -26,7 +26,7 @@ export default function Contact() {
       </p>
 
       <div className="bg-p-color px-dyp py-10 md:flex justify-between items-center">
-        <p className="text-white font-bold text-3xl text-center flex items-center gap-2 my-5">
+        <p className="text-white font-bold text-3xl text-center flex items-center gap-2 my-5 max-lg:w-fit max-lg:mx-auto">
           {t("contact.getInTouch")} <MdContactMail />
         </p>
 
