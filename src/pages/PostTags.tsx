@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import usePostsWithTags from "../hooks/useTags";
 import Error from "./Error";
 import { AutoSkeletonLoader } from "react-loadly";
@@ -61,7 +61,7 @@ function TagPost() {
   return (
     <article className="space-y-4 mt-4 w-full min-h-fit text-center bg-p-color sm:px-8 sm:py-4 rounded-lg  max-md:order-2">
       {/* Render all blog posts */}
-      <Posts posts={posts} />
+      <Posts />
     </article>
   );
 }

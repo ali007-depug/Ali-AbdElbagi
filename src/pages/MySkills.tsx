@@ -14,14 +14,14 @@ export default function MySkills() {
       {t('skillsPage.description')}
       </p>
       {/* skill badges */}
-      <SkillsBadges isLearntSkills={true} bg={'bg-sky-900'} cardWidth={'350px'}/>
+      <SkillsBadges isLearntSkills={true} bg={'bg-sky-900'}/>
 
       {/* Thing i want to learn */}
       <h2 className="text-2xl md:text-4xl mx-auto w-fit font-bold  text-white my-5">
         {t('skillsPage.nextLevelTitle')}
       </h2>
 
-    <SkillsBadges isLearntSkills={false} bg={'bg-gray-500'} cardWidth={'350px'}/>
+    <SkillsBadges isLearntSkills={false} bg={'bg-gray-500'}/>
     </section>
     </>
   );
