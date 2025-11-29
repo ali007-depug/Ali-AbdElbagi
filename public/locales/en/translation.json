@@ -163,6 +163,8 @@
     "backToAllPosts": "Back to All Posts"
   },
   "errorPage": {
-    "defaultMsg": "Page Not Found , Please Go To Previous Page"
+    "defaultMsg": "Page Not Found",
+    "backToHome":" Back to Home Page"
+
   }
 }
