@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import i18n from "../../i18n";
 import useBlogs from "../../hooks/useBlogs";
 import { AutoSkeletonLoader } from "react-loadly";
-import PostSkelton from "./PostSkelton";
 import PostsSkelton from "./PostsSkelton";
 export default function Posts() {
   // Fetch blog posts data using custom hook
@@ -15,7 +14,7 @@ export default function Posts() {
     >
       {/* post title + thumbnail + desc */}
       <Link
-        to={`/${i18n.language}/blog/${post.fields.uniqueUrl}`}
+        to={`/${i18n.language}/blog/${post.fields.slug}`}
         className="flex max-sm:flex-col gap-5 w-full items-center sm:justify-evenly group hover:bg-s-color/50 transition-all duration-150 ease-in-out"
       >
         {/* post details */}

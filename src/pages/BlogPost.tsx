@@ -37,10 +37,10 @@ export default function BlogPost() {
 }
 
 function Post() {
-  // get uniqueUrl param from route
-  const { uniqueUrl } = useParams();
+  // get slug param from route
+  const { slug } = useParams();
   // Fetch blog post data using custom hook
-  const { data: post, isLoading, isError } = useBlogPost(uniqueUrl as string);
+  const { data: post, isLoading, isError } = useBlogPost(slug as string);
   // Translation hook
   const { t } = useTranslation();
   // Show loading spinner while data is being fetched
