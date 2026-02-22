@@ -59,7 +59,7 @@ function TagPost() {
     return <Error msg={`لا توجد مقالات لـ تصنيف الـ ${tag}`} />;
 
   return (
-    <article className="space-y-4 mt-4 w-full min-h-fit text-center bg-p-color sm:px-8 sm:py-4 rounded-lg  max-md:order-2">
+    <article className="space-y-4 mt-4 w-full min-h-fit text-center bg-p-color sm:px-8 sm:py-4 rounded-lg max-md:order-2">
       {/* Render all blog posts */}
       <Posts />
     </article>

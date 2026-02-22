@@ -46,7 +46,7 @@ export default function Header() {
 
       {/* header  */}
       <header
-        className={`flex fixed top-0 w-full bg-white items-center justify-between py-4 px-5 md:px-10 z-30 transition-discrete transition-all duration-200 ${
+        className={`flex fixed top-10 w-full bg-white items-center justify-between py-4 px-5 md:px-10 z-30 transition-discrete transition-all duration-200 ${
           showHeader ? "opacity-0 invisible" : "opacity-100 visible"
         } `}
       >
